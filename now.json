@@ -1,0 +1,12 @@
+{
+  "name": "bodgebear.dev",
+  "version": 2,
+  "alias": ["bodgebear.dev"],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "status": 301,
+      "headers": { "Location": "https://konduktor.bodgebear.dev/$1" }
+    }
+  ]
+}
