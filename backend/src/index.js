@@ -15,7 +15,7 @@ const octokit = new Octokit({
 
 const getFile = getFileFactory(octokit);
 
-(async () => {
+module.exports = async (req, res) => {
   const { data: repos } = await octokit.repos.listForOrg({
     org: ORG_NAME
   });
@@ -66,5 +66,5 @@ const getFile = getFileFactory(octokit);
     .filter(isTruthy => isTruthy)
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-  console.log(JSON.stringify(projects, null, 2));
-})();
+  res.end(JSON.stringify(projects, null, 2));
+}

@@ -3,6 +3,20 @@
   "version": 2,
   "alias": ["bodgingbear.dev"],
   "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
+    { "src": "next.config.js", "use": "@now/next" },
+    { "src": "backend/routes/*.js", "use": "@now/node" }
+  ],
+  "env": {
+    "TOKEN": "@bodgingbear.dev-GH_TOKEN"
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/routes/$1.js"
+    },
+    {
+      "src": "/api",
+      "dest": "backend/routes/index.js"
+    }
   ]
 }
