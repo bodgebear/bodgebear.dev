@@ -7,7 +7,7 @@
     { "src": "backend/routes/*.js", "use": "@now/node" }
   ],
   "env": {
-    "TOKEN": "@bodgingbear.dev-GH_TOKEN"
+    "TOKEN": "@bodgingbear.dev-gh_token"
   },
   "routes": [
     {
