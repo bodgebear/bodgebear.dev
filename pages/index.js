@@ -1,14 +1,12 @@
-import GlobalStyles from "../utils/GlobalStyles";
-
+import GlobalStyles, {Button} from "../utils/globalStyles";
 
 const index = () => {
   return (
-    <GlobalStyles>
-    <React.Fragment>
-      Heello
-    </React.Fragment>
-    </GlobalStyles>
-      )
+    <main>
+      <GlobalStyles/>
+      <Button >Play now</Button>
+    </main>
+  )
 };
 
 export default index;
