@@ -1,11 +1,15 @@
-import GlobalStyles, {Button} from "../utils/globalStyles";
+import GlobalStyles from "../utils/globalStyles";
+import {Button} from "../utils/buttons";
+import {Heading1, Heading2, StrongText, Text, SubText} from "../utils/typography";
+import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 const index = () => {
   return (
-    <main>
+    <React.Fragment>
       <GlobalStyles/>
-      <Button >Play now</Button>
-    </main>
+      <Layout/>
+    </React.Fragment>
   )
 };
 
