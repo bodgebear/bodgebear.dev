@@ -2,11 +2,7 @@
   "name": "bodgingbear.dev",
   "version": 2,
   "alias": ["bodgingbear.dev"],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://konduktor.bodgingbear.dev/$1" }
-    }
+  "builds": [
+    { "src": "next.config.js", "use": "@now/next" }
   ]
 }

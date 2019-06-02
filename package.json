@@ -28,6 +28,6 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "next-compose": "0.0.2"
+    "next-compose-plugins": "^2.2.0"
   }
 }
