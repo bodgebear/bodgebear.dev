@@ -1,0 +1,14 @@
+{
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-styled-components"
+  ],
+  "plugins": [
+    "stylelint-declaration-use-variable"
+  ],
+  "rules": {
+    "sh-waqar/declaration-use-variable": "/color/"  }
+}
