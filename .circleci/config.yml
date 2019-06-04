@@ -1,0 +1,58 @@
+version: 2
+references:
+  nodejs_defaults: &nodejs_defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node
+jobs:
+  build_frontend:
+    <<: *nodejs_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-cache-v1-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm ci
+      - save_cache:
+          key: npm-cache-v1-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.npm
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+
+  lint_frontend_css:
+    <<: *nodejs_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          working_directory: ~/repo
+          name: Lint CSS
+          command: npm run lint:css
+
+  lint_frontend_js:
+    <<: *nodejs_defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          working_directory: ~/repo
+          name: Lint JS
+          command: npm run lint:js
+
+workflows:
+  version: 2
+  build-and-test-frontend:
+    jobs:
+      - build_frontend
+      - lint_frontend_css:
+          requires:
+            - build_frontend
+      - lint_frontend_js:
+          requires:
+            - build_frontend
