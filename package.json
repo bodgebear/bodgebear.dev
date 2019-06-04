@@ -24,10 +24,15 @@
     "next-images": "^1.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "next-compose-plugins": "^2.2.0",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "next-compose-plugins": "^2.2.0"
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0"
   }
 }

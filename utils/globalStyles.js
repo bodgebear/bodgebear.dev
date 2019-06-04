@@ -1,5 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import colors from "./colors";
+import { createGlobalStyle } from 'styled-components';
+import colors from './colors';
 import Miners from '../static/Pixel-Miners.ttf';
 
 const GlobalStyles = createGlobalStyle`

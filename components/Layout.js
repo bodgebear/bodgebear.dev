@@ -1,15 +1,10 @@
-import Header from "./Header";
-import styled from 'styled-components';
+import React from 'react';
+import Header from './Header';
 
+const Layout = () => (
+  <React.Fragment>
+    <Header bear />
+  </React.Fragment>
+);
 
-const Layout = () => {
-  return (
-    <React.Fragment>
-      <Header bear/>
-
-    </React.Fragment>
-  )
-
-};
-
-export default Layout
+export default Layout;

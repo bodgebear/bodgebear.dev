@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import colors from "./colors";
+import styled from 'styled-components';
+import colors from '../../utils/colors';
 
-export const Button = styled('button')`
+const Button = styled('button')`
   border: none;
   padding: .6em 1.4em;
   background-color: ${colors.black};
@@ -20,3 +20,5 @@ export const Button = styled('button')`
     color: rgba(255,255,255, 0.7);
   }
 `;
+
+export default Button;
