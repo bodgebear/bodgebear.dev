@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderText from '../static/bb_name.png';
-import BannerBear from '../static/banner_bear_no_logo.png';
+import HeaderText from '../../static/bb_name.png';
+import BannerBear from '../../static/banner_bear_no_logo.png';
 
 const StyledHeader = styled('header')`
   width: 100vw;

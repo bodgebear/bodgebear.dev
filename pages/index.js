@@ -1,12 +1,12 @@
-import React from 'react';
-import GlobalStyles from '../utils/globalStyles';
+import React, { Fragment } from 'react';
+import GlobalStyles from '../styles/globalStyles';
 import Layout from '../components/Layout';
 
 const index = () => (
-  <React.Fragment>
+  <Fragment>
     <GlobalStyles />
     <Layout />
-  </React.Fragment>
+  </Fragment>
 );
 
 export default index;
