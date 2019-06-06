@@ -7,8 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "linst:css": "stylelint './**/*.js' ",
-    "lint:js": "eslint './**/*.js'",
+    "lint:css": "stylelint './**/*.{js,jsx}'",
+    "lint:js": "eslint './**/*.{js,jsx}'",
     "lint": "npm run lint:js && npm run lint:css"
   },
   "repository": {
