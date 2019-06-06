@@ -11,6 +11,10 @@
   },
   "routes": [
     {
+      "src": "/api/projects",
+      "dest": "backend/routes/projects.js"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "backend/routes/$1.js"
     },
