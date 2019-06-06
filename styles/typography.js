@@ -8,13 +8,12 @@ export const Heading1 = styled('h1')`
 
 export const Heading2 = styled('h2')`
   font-size: 3.5rem;
-    text-transform: uppercase;
-
+  text-transform: uppercase;
 `;
 
 export const Text = styled('p')`
   font-size: 1.6rem;
-  opacity: .7;
+  opacity: 0.7;
 `;
 
 export const StrongText = styled('p')`
@@ -23,5 +22,5 @@ export const StrongText = styled('p')`
 
 export const SubText = styled('p')`
   font-size: 1rem;
-  opacity: .66;
+  opacity: 0.66;
 `;

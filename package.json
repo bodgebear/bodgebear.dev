@@ -1,5 +1,5 @@
 {
-  "name": "bg",
+  "name": "bodgingbear.dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "stylecss": "stylelint './components/**/*.js'"
+    "linst:css": "stylelint './**/*.js' ",
+    "lint:js": "eslint './**/*.js'",
+    "lint": "npm run lint:js && npm run lint:css"
   },
   "repository": {
     "type": "git",

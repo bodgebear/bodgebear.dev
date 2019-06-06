@@ -1,7 +1,8 @@
 const colors = {
-  black: '#151616',
+  dark: '#151616',
   white: '#FFFFFF',
   grey: '#707070',
+  black: '#0B0A0A',
 };
 
 export default colors;
