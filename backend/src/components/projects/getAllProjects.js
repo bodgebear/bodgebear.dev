@@ -1,9 +1,11 @@
 const axios = require('axios');
-const { GH_TOKEN } = require('./consts');
-const get = require('lodash.get');
-const { valuesOrNull } = require('./utils');
-const reposQuery = require('./reposQuery.js');
 const yamlFront = require('yaml-front-matter');
+const get = require('lodash.get');
+
+const { GH_TOKEN } = require('../../utils/consts');
+const valuesOrNull = require('../../utils/valuesOrNull');
+const formatProject = require('./formatProject');
+const reposQuery = require('../../utils/reposQuery.js');
 
 module.exports = async () => {
   const { data: { data } } = await axios.post(
@@ -37,16 +39,17 @@ module.exports = async () => {
     now: nowFile
   }) => {
     const { __content: description, ...websiteConfig } = yamlFront.loadFront(website);
+
     const readme = readmeFile && readmeFile.text;
     const now = nowFile && JSON.parse(nowFile.text);
 
-    return {
-      ...websiteConfig,
+    return formatProject({
+      id: name,
       description: valuesOrNull(description, readme),
-      playNowLink: valuesOrNull(websiteConfig.playNowLink, (now && now.alias[0])),
+      playNowLink: valuesOrNull(websiteConfig.playNowLink, now && now.alias[0]),
       srcUrl: valuesOrNull(websiteConfig.srcUrl, url),
       createdAt: valuesOrNull(websiteConfig.createdAt, createdAt),
-      repoName: name
-    }
+      ...websiteConfig,
+    });
   });
 }

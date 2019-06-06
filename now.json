@@ -11,16 +11,12 @@
   },
   "routes": [
     {
-      "src": "/api/projects",
+      "src": "/api/projects/?$",
       "dest": "backend/routes/projects.js"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "backend/routes/$1.js"
-    },
-    {
-      "src": "/api",
-      "dest": "backend/routes/index.js"
+      "src": "/api/projects/(.+)$",
+      "dest": "backend/routes/projectById.js?project=$1"
     }
   ]
 }

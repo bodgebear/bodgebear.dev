@@ -1,9 +1,8 @@
-const getAllProjects = require('../src/getAllProjects');
+const getAllProjects = require('../src/components/projects/getAllProjects');
+const stringify = require('../src/utils/stringify');
 
 module.exports = async (req, res) => {
   const projects = await getAllProjects();
 
-  const websiteProjects = projects
-
-  res.end(JSON.stringify(projects, null, 2));
+  res.end(stringify({ projects }));
 }
