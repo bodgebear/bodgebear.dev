@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import colors from '../../../styles/colors';
 
 const button = {
   width: '0.25em',
   opacity: 0.6,
   color: '#FFFFFF',
-  bgColor: '#FFFFFF',
+  bgColor: '#151616',
   hoverColor: '#151616',
   hoverBgColor: '#FFFFFF',
   disabledBgColor: 'rgba(0, 0, 0, 0.2)',
@@ -15,15 +14,15 @@ const button = {
 const StyledButton = styled('button')`
   border: none;
   padding: 0.6em 1.4em;
-  background-color: ${colors.dark};
-  color: ${colors.white};
+  background-color: ${button.bgColor};
+  color: ${button.color};
   box-shadow:
     -${button.width} 0 0 rgba(255, 255, 255, ${button.opacity}),
     ${button.width} 0 0 rgba(255, 255, 255, ${button.opacity}),
     0 ${button.width}  0 rgba(255, 255, 255, ${button.opacity}),
     0 -${button.width} 0 rgba(255, 255, 255, ${button.opacity});
   font-size: 1rem;
-  transition: all 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
   transition-property: color, background-color;
   font-family: 'Miners', serif;
 

@@ -2,11 +2,11 @@ import React from 'react';
 import GlobalStyles from '../styles/GlobalStyles';
 import Layout from '../components/Layout';
 
-const index = () => (
+const Index = () => (
   <>
     <GlobalStyles />
     <Layout />
   </>
 );
 
-export default index;
+export default Index;

@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../Header';
-import Button from '../elements/Button';
+import StyledButton from '../elements/Button';
 
 const Layout = () => (
   <>
-    <Header hasBear />
-    <Button>Player</Button>
+    <Header hasBear={false} />
+    <StyledButton>Player</StyledButton>
   </>
 );
 
