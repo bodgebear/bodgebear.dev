@@ -3,7 +3,6 @@ const yamlFront = require('yaml-front-matter');
 const get = require('lodash.get');
 
 const { GH_TOKEN } = require('../../utils/consts');
-const valuesOrNull = require('../../utils/valuesOrNull');
 const formatProject = require('./formatProject');
 const reposQuery = require('../../utils/reposQuery.js');
 
@@ -40,15 +39,18 @@ module.exports = async () => {
   }) => {
     const { __content: description, ...websiteConfig } = yamlFront.loadFront(website);
 
-    const readme = readmeFile && readmeFile.text;
-    const now = nowFile && JSON.parse(nowFile.text);
+    const readmeFileContent = readmeFile && readmeFile.text;
+    const nowConfigFileContent = nowFile && JSON.parse(nowFile.text);
 
     return formatProject({
       id: name,
-      description: valuesOrNull(description, readme),
-      playNowLink: valuesOrNull(websiteConfig.playNowLink, now && now.alias[0]),
-      srcUrl: valuesOrNull(websiteConfig.srcUrl, url),
-      createdAt: valuesOrNull(websiteConfig.createdAt, createdAt),
+      description: description || readmeFileContent || null,
+      playNowUrl:
+        websiteConfig.playNowUrl
+        || (nowConfigFileContent && nowConfigFileContent.alias[0])
+        || null,
+      srcUrl: websiteConfig.srcUrl || url || null,
+      createdAt: websiteConfig.createdAt || createdAt || null,
       ...websiteConfig,
     });
   });

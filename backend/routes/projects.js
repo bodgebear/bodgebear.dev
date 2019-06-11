@@ -1,8 +1,8 @@
 const getAllProjects = require('../src/components/projects/getAllProjects');
-const stringify = require('../src/utils/stringify');
+const jsonRequest = require('../src/utils/jsonRequest');
 
 module.exports = async (req, res) => {
   const projects = await getAllProjects();
 
-  res.end(stringify({ projects }));
+  return jsonRequest(res, { projects })
 }
