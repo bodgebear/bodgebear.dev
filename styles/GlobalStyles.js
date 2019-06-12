@@ -20,8 +20,8 @@ const GlobalStyles = createGlobalStyle`
   html,
   body {
     font-size: 1rem;
-    background-color: ${colors.black};
-    color: ${colors.white};
+    background-color: ${colors.background};
+    color: ${colors.text};
     width: 100%;
     font-family: 'Miners', sans-serif;
 

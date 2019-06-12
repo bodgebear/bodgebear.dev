@@ -1,6 +1,7 @@
 import React from 'react';
 import Document from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import GlobalStyles from '../styles/GlobalStyles';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -19,6 +20,7 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            <GlobalStyles />
           </>
         ),
       };

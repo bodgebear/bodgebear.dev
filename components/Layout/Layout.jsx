@@ -4,7 +4,7 @@ import StyledButton from '../elements/Button';
 
 const Layout = () => (
   <>
-    <Header hasBear={false} />
+    <Header hasBear />
     <StyledButton>Player</StyledButton>
   </>
 );

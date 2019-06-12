@@ -13,8 +13,11 @@ const Header = ({ hasBear }) => (
 );
 
 Header.propTypes = {
-  hasBear: PropTypes.bool.isRequired,
+  hasBear: PropTypes.bool,
+};
 
+Header.defaultProps = {
+  hasBear: false,
 };
 
 export default Header;
