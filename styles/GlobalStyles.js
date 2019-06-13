@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
 import Miners from '../static/Pixel-Miners.ttf';
-import breakpoints from './breakpoints';
+import { desktop, tablet } from './breakpoints';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -25,11 +25,11 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     font-family: 'Miners', sans-serif;
 
-    @media (${breakpoints.tablet}) {
+    @media (${tablet}) {
       font-size: 1.1rem;
     }
 
-    @media (${breakpoints.desktop}) {
+    @media (${desktop}) {
       font-size: 1.3rem;
     }
   }
