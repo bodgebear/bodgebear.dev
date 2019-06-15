@@ -1,5 +1,7 @@
+/* eslint-disable no-param-reassign */
 const withFonts = require('next-fonts');
 const withPlugins = require('next-compose-plugins');
+const routes = require('./routes');
 
 module.exports = withPlugins(
   [
@@ -25,6 +27,8 @@ module.exports = withPlugins(
           },
         ],
       });
+
+      config.resolve.alias = { ...config.resolve.alias, ...routes };
 
       return config;
     },
