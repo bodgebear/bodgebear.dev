@@ -12,14 +12,16 @@ jobs:
       - restore_cache:
           key: npm-cache-v1-{{ checksum "package-lock.json" }}
       - run:
+          working_directory: ~/repo/frontend
           name: Install Dependencies
           command: npm ci
       - save_cache:
+          working_directory: ~/repo/frontend
           key: npm-cache-v1-{{ checksum "package-lock.json" }}
           paths:
             - /home/circleci/.npm
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/repo/frontend
           paths:
             - .
 
@@ -28,9 +30,9 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/repo
+          at: ~/repo/frontend
       - run:
-          working_directory: ~/repo
+          working_directory: ~/repo/frontend
           name: Lint CSS
           command: npm run lint:css
 
@@ -39,9 +41,9 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/repo
+          at: ~/repo/frontend
       - run:
-          working_directory: ~/repo
+          working_directory: ~/repo/frontend
           name: Lint JS
           command: npm run lint:js
 

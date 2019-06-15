@@ -3,7 +3,7 @@
   "version": 2,
   "alias": ["bodgingbear.dev"],
   "builds": [
-    { "src": "next.config.js", "use": "@now/next" },
+    { "src": "frontend/next.config.js", "use": "@now/next" },
     { "src": "backend/routes/*.js", "use": "@now/node" }
   ],
   "env": {
@@ -17,6 +17,14 @@
     {
       "src": "/api/projects/(.+)$",
       "dest": "backend/routes/projectById.js?project=$1"
+    },
+    {
+      "src": "^/$",
+      "dest": "frontend/index"
+    },
+    {
+      "src": "(.+)",
+      "dest": "frontend/$1"
     }
   ]
 }
