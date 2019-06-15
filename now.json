@@ -19,12 +19,12 @@
       "dest": "backend/routes/projectById.js?project=$1"
     },
     {
-      "src": "^/$",
+      "src": "/",
       "dest": "frontend/index"
     },
     {
-      "src": "(.+)",
-      "dest": "frontend/$1"
+      "src": "^/_next/(.*)",
+      "dest": "frontend/_next/$1"
     }
   ]
 }
