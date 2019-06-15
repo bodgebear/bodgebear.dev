@@ -22,14 +22,15 @@
   },
   "homepage": "https://github.com/bodgingbear/bodgingbear.dev#readme",
   "dependencies": {
+    "file-loader": "^4.0.0",
     "next": "^8.1.0",
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.17.0",
-    "next-images": "^1.1.1",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0",
-    "prop-types": "^15.7.2"
+    "url-loader": "^2.0.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
