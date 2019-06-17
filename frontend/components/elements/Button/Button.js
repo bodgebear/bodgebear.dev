@@ -13,6 +13,7 @@ const button = {
 };
 
 const StyledButton = styled('button')`
+  position: relative;
   border: none;
   padding: 0.6em 1.4em;
   background-color: ${button.bgColor};
