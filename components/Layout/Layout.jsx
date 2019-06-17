@@ -4,10 +4,12 @@ import StyledButton from '../elements/Button';
 import Main from './styles';
 
 const Layout = () => (
-  <Main>
+  <>
     <Header hasBear />
-    <StyledButton>Player</StyledButton>
-  </Main>
+    <Main>
+      <StyledButton>Player</StyledButton>
+    </Main>
+  </>
 );
 
 export default Layout;
