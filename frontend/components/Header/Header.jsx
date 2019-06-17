@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import headerText from 'static/bb_name.png';
 import bannerBear from 'static/banner_bear_no_logo.png';
 import bannerNoBear from 'static/banner_no_bear_no_logo.png';
-import { StyledHeader, StyledLogo, StyledBanner, LogoContainer } from './styles';
+import {
+  StyledHeader, StyledLogo, StyledBanner, LogoContainer,
+} from './styles';
 
 const Header = ({ hasBear }) => (
   <StyledHeader>
