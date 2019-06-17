@@ -1,6 +1,6 @@
 import React from 'react';
+import StyledButton from 'components/elements/Button';
 import Header from '../Header';
-import StyledButton from '../elements/Button';
 import Main from './styles';
 
 const Layout = () => (
