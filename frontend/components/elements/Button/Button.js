@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 const button = {
   width: '0.25em',
-  opacity: 0.6,
+  borderOpacity: 0.6,
   colorText: '#FFFFFF',
-  bgColor: '#0B0A0A',
+  bgColor: 'rgba(0, 0, 0, 0.2)',
   hoverColor: '#0B0A0A',
   hoverBgColor: '#FFFFFF',
   disabledBgColor: 'rgba(0, 0, 0, 0.2)',
@@ -14,15 +14,16 @@ const button = {
 
 const StyledButton = styled('button')`
   position: relative;
+  margin: 1rem;
   border: none;
   padding: 0.6em 1.4em;
   background-color: ${button.bgColor};
   color: ${button.colorText};
   box-shadow:
-    -${button.width} 0 0 rgba(${button.borderColor}, ${button.opacity}),
-    ${button.width} 0 0 rgba(${button.borderColor}, ${button.opacity}),
-    0 ${button.width}  0 rgba(${button.borderColor}, ${button.opacity}),
-    0 -${button.width} 0 rgba(${button.borderColor}, ${button.opacity});
+    -${button.width} 0 0 rgba(${button.borderColor}, ${button.borderOpacity}),
+    ${button.width} 0 0 rgba(${button.borderColor}, ${button.borderOpacity}),
+    0 ${button.width}  0 rgba(${button.borderColor}, ${button.borderOpacity}),
+    0 -${button.width} 0 rgba(${button.borderColor}, ${button.borderOpacity});
   font-size: 1rem;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color;

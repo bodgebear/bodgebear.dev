@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StrongP, SubText } from 'styles/typography';
+import StyledButton from 'components/elements/Button';
 import { StyledDiv, StyledPicture } from './styles';
-import { StrongP, SubText } from '../../../styles/typography';
 
 const Game = ({ picture, name, subText }) => (
   <StyledDiv>
     <StyledPicture src={picture} />
     <StrongP>{name}</StrongP>
     <SubText>{subText}</SubText>
+    <StyledButton>Play now</StyledButton>
   </StyledDiv>
 );
 
@@ -18,8 +20,8 @@ Game.propTypes = {
 };
 
 Game.defaultProps = {
-  picture: false,
-  name: false,
-  subText: false,
+  picture: '',
+  name: '',
+  subText: '',
 };
 export default Game;

@@ -16,7 +16,8 @@ export const Text = styled('p')`
 `;
 
 export const StrongP = styled('p')`
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  padding: 0.7rem;
 `;
 
 export const SubText = styled('p')`
