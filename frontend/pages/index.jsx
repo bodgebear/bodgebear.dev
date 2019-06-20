@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import GlobalStyles from '../styles/GlobalStyles';
-import OurGames from '../components/OurGames';
+import GlobalStyles from 'styles/GlobalStyles';
+import OurGames from 'components/OurGames';
 
 const Index = () => (
   <>
