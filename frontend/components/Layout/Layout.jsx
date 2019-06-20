@@ -1,15 +1,27 @@
 import React from 'react';
-import StyledButton from 'components/elements/Button';
+import PropTypes from 'prop-types';
 import Header from '../Header';
 import Main from './styles';
 
-const Layout = () => (
+const Layout = ({ children, hasBear }) => (
   <>
-    <Header hasBear />
+    <Header hasBear={hasBear} />
     <Main>
-      <StyledButton>Player</StyledButton>
+      {children}
     </Main>
   </>
 );
+
+Layout.propTypes = {
+  hasBear: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+};
+
+Layout.defaultProps = {
+  hasBear: false,
+};
 
 export default Layout;

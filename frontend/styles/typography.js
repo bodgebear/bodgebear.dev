@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading1 = styled('h1')`
-  font-size: 3rem;
+  font-size: 2.3rem;
   text-transform: uppercase;
 `;
 
