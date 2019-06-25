@@ -6,7 +6,7 @@ import { GamesContainer, StyledSection } from './styles';
 
 const OurGames = ({ games }) => (
   <StyledSection>
-    <Heading1>our games</Heading1>
+    <Heading1>OUR GAMES</Heading1>
     <GamesContainer>
       {games.map(game => (
         <Game

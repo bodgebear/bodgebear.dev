@@ -4,12 +4,16 @@ import Layout from 'components/Layout';
 import GlobalStyles from 'styles/GlobalStyles';
 import OurGames from 'components/OurGames';
 import PropTypes from 'prop-types';
+import OurTeam from 'components/OurTeam';
+import Contact from '../components/Contact';
 
 const Index = ({ games }) => (
   <>
     <GlobalStyles />
     <Layout hasBear>
       <OurGames games={games.projects} />
+      <OurTeam />
+      <Contact />
     </Layout>
   </>
 );

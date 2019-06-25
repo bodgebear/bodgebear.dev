@@ -42,4 +42,5 @@ Game.defaultProps = {
   playLink: '',
   idName: '',
 };
+
 export default Game;
