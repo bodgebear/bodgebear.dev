@@ -13,7 +13,7 @@ export const TeamContainer = styled('div')`
 `;
 
 export const Heading3 = styled('h3')`
-  opacity: .8;
+  opacity: 0.8;
   margin: 1.5rem;
   font-size: 1.7rem;
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled('section')`
+const StyledSection = styled('section')`
   text-align: center;
-
 `;
+
+export default StyledSection;

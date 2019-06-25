@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading1 } from 'styles/typography';
-import { StyledSection } from './styles';
+import StyledSection from './styles';
 
 const Contact = () => (
   <StyledSection>
