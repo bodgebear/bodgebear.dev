@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledDiv = styled('div')`
-  padding: 1rem 1rem;
+export const GameContainer = styled('div')`
+  padding: 1.5rem 1rem;
 `;
 
 export const StyledPicture = styled('img')`

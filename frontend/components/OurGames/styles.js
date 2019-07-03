@@ -9,6 +9,6 @@ export const GamesContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
 `;

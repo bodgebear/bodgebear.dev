@@ -1,4 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const button = {
   width: '0.25em',
@@ -12,7 +15,10 @@ const button = {
   borderColor: '255, 255, 255',
 };
 
-const StyledButton = styled('button')`
+const StyledButton = styled('a')`
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
   position: relative;
   margin: 1rem;
   border: none;
@@ -40,4 +46,20 @@ const StyledButton = styled('button')`
   }
 `;
 
-export default StyledButton;
+const StyledLink = ({ href, text }) => (
+  <Link prefetch href={href} passHref>
+    <StyledButton>{text}</StyledButton>
+  </Link>
+);
+
+StyledLink.propTypes = {
+  href: PropTypes.string,
+  text: PropTypes.string,
+};
+
+StyledLink.defaultProps = {
+  href: '',
+  text: '',
+};
+
+export default StyledLink;

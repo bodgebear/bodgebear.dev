@@ -6,7 +6,11 @@ module.exports = {
     "import/resolver": {
       alias: {
         map: Object.entries(routes)
-      }
+      },
+      env: {
+        jest: true,
+        browser: true,
+      },
     }
   },
 };

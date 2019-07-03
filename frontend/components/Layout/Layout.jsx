@@ -14,10 +14,7 @@ const Layout = ({ children, hasBear }) => (
 
 Layout.propTypes = {
   hasBear: PropTypes.bool,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 Layout.defaultProps = {

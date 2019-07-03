@@ -10,9 +10,9 @@ import {
 const Header = ({ hasBear }) => (
   <StyledHeader>
     <LogoContainer>
-      <StyledLogo src={headerText} />
+      <StyledLogo src={headerText} alt="Bodging Bear" />
     </LogoContainer>
-    <StyledBanner src={hasBear ? `${bannerBear}` : `${bannerNoBear}`} />
+    <StyledBanner src={hasBear ? `${bannerBear}` : `${bannerNoBear}`} alt="banner" />
   </StyledHeader>
 );
 
