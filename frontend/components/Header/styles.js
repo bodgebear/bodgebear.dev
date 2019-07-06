@@ -16,7 +16,7 @@ export const LogoContainer = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 99%;
+  width: 100%;
   padding: 2rem 3rem;
   height: 9rem;
 
