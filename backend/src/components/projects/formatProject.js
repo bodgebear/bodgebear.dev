@@ -1,10 +1,10 @@
 const formatProject = ({
-  description,
+  readme,
   playNowUrl,
   ...websiteConfig
 }) => ({
   ...websiteConfig,
-  description: description.replace(/^\n+/, "").replace(/\n+$/, ""),
+  readme: readme.replace(/^\n+/, "").replace(/\n+$/, ""),
   playNowUrl: `https://${playNowUrl}`,
 })
 

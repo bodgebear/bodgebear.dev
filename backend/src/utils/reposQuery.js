@@ -7,6 +7,7 @@ module.exports = `{
         name
         url
         createdAt
+        description
         readme:object(expression: "master:README.md") {
           ... on Blob {
             text

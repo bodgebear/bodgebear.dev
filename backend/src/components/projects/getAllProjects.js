@@ -35,16 +35,18 @@ module.exports = async () => {
       text: website
     },
     readme: readmeFile,
+    description,
     now: nowFile
   }) => {
-    const { __content: description, ...websiteConfig } = yamlFront.loadFront(website);
+    const { __content: readmeFromWebsiteMd, ...websiteConfig } = yamlFront.loadFront(website);
 
     const readmeFileContent = readmeFile && readmeFile.text;
     const nowConfigFileContent = nowFile && JSON.parse(nowFile.text);
 
     return formatProject({
       id: name,
-      description: description || readmeFileContent || null,
+      description,
+      readme: readmeFromWebsiteMd || readmeFileContent || null,
       playNowUrl:
         websiteConfig.playNowUrl
         || (nowConfigFileContent && nowConfigFileContent.alias[0])
