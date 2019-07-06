@@ -8,11 +8,10 @@ const Game = ({
   picture, name, subText, playLink,
 }) => (
   <GameContainer>
-    <StyledPicture src={picture} alt={name} />
+    <StyledPicture src={picture} alt="" />
     <StrongP>{name}</StrongP>
     <SubText>{subText}</SubText>
-    {/* <Link href="https://google.com"><StyledLink>Play now</StyledLink></Link> */}
-    <StyledLink href={playLink} text="Play now" />
+    <StyledLink href={playLink} children="Play now" />
   </GameContainer>
 );
 

@@ -15,7 +15,7 @@ const button = {
   borderColor: '255, 255, 255',
 };
 
-const StyledButton = styled('a')`
+const StyledA = styled('a')`
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
@@ -46,20 +46,20 @@ const StyledButton = styled('a')`
   }
 `;
 
-const StyledLink = ({ href, text }) => (
+const StyledLink = ({ href, children }) => (
   <Link prefetch href={href} passHref>
-    <StyledButton>{text}</StyledButton>
+    <StyledA>{children}</StyledA>
   </Link>
 );
 
 StyledLink.propTypes = {
   href: PropTypes.string,
-  text: PropTypes.string,
+  children: PropTypes.string,
 };
 
 StyledLink.defaultProps = {
   href: '',
-  text: '',
+  children: '',
 };
 
 export default StyledLink;
