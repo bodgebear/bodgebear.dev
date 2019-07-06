@@ -11,7 +11,7 @@ const Game = ({
     <StyledPicture src={picture} alt="" />
     <StrongP>{name}</StrongP>
     <SubText>{subText}</SubText>
-    <StyledLink href={playLink} children="Play now" />
+    <StyledLink href={playLink}>Play Now</StyledLink>
   </GameContainer>
 );
 
