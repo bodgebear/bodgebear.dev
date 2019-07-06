@@ -4,7 +4,7 @@ import headerText from 'static/bb_name.png';
 import bannerBear from 'static/banner_bear_no_logo.png';
 import bannerNoBear from 'static/banner_no_bear_no_logo.png';
 import {
-  StyledHeader, StyledLogo, StyledBanner, LogoContainer,
+  StyledHeader, StyledLogo, StyledBanner, LogoContainer, BannerContainer,
 } from './styles';
 
 const Header = ({ hasBear }) => (
@@ -12,7 +12,9 @@ const Header = ({ hasBear }) => (
     <LogoContainer>
       <StyledLogo src={headerText} />
     </LogoContainer>
-    <StyledBanner src={hasBear ? `${bannerBear}` : `${bannerNoBear}`} />
+    <BannerContainer>
+      <StyledBanner src={hasBear ? `${bannerBear}` : `${bannerNoBear}`} alt="" />
+    </BannerContainer>
   </StyledHeader>
 );
 

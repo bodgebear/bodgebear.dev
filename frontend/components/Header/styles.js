@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { tablet } from '../../styles/breakpoints';
 
 export const StyledHeader = styled('header')`
-  width: 100%;
   height: 26rem;
+  position: relative;
 
   @media (${tablet}) {
     height: 36rem;
@@ -31,14 +31,21 @@ export const StyledLogo = styled('img')`
   max-height: 100%;
 `;
 
-export const StyledBanner = styled('img')`
+export const BannerContainer = styled('div')`
+  position: relative;
+  z-index: 1;
   height: 50rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  image-rendering: pixelated;
+  overflow: hidden;
 
   @media (${tablet}) {
     height: 70rem;
   }
+`;
+
+export const StyledBanner = styled('img')`
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  image-rendering: pixelated;
 `;
