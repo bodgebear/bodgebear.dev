@@ -7,10 +7,9 @@ module.exports = {
       alias: {
         map: Object.entries(routes)
       },
-      env: {
-        jest: true,
-        browser: true,
-      },
     }
+  },
+  env: {
+    browser: true,
   },
 };

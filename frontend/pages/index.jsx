@@ -15,7 +15,9 @@ const Index = ({ games }) => (
 );
 
 Index.getInitialProps = async ({ req }) => {
-  const baseUrl = `${req.headers['x-forwarded-proto']}://${req.headers['x-forwarded-host']}`;
+  const baseUrl = req
+    ? `${req.headers['x-forwarded-proto']}://${req.headers['x-forwarded-host']}`
+    : window.location.origin;
   const res = await fetch(`${baseUrl}/api/projects/`);
   const data = await res.json();
 
