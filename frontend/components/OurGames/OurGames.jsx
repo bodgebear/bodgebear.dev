@@ -8,12 +8,14 @@ const OurGames = ({ games }) => (
   <StyledSection>
     <Heading1>our games</Heading1>
     <GamesContainer>
+      {console.log(games)}
       {games.map(game => (
         <Game
           picture={game.mainImage}
           name={game.title}
           subText={game.description}
           playLink={game.playNowUrl}
+          idName={game.id}
           key={game.id}
         />
       ))}

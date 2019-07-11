@@ -9,3 +9,5 @@ export const StyledPicture = styled('img')`
   width: 20rem;
   image-rendering: pixelated;
 `;
+
+export const StyledA = styled('a')``;
