@@ -1,7 +1,7 @@
 {
   "name": "bodgingbear.dev",
   "version": 2,
-  "alias": ["bodgingbear.dev"],
+  "alias": ["bodgingbear.dev", "xn--rihx924p.ws"],
   "routes": [
     {
       "src": "/(.*)",
