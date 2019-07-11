@@ -8,7 +8,6 @@ const OurGames = ({ games }) => (
   <StyledSection>
     <Heading1>our games</Heading1>
     <GamesContainer>
-      {console.log(games)}
       {games.map(game => (
         <Game
           picture={game.mainImage}

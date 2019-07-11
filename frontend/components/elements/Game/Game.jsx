@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { StrongP, SubText } from 'styles/typography';
 import StyledLink from 'components/elements/Button';
-import { GameContainer, StyledPicture } from './styles';
+import { GameContainer, StyledA, StyledPicture } from './styles';
 
 
 const Game = ({
   picture, name, subText, playLink, idName: id,
 }) => {
-  const href = `/project/[id]`;
+  const href = '/project/[id]';
   const as = `/project/${id}`;
 
   return (
     <GameContainer>
       <Link href={href} as={as}>
-        <a>
+        <StyledA>
           <StyledPicture src={picture} alt="" />
           <StrongP>{name}</StrongP>
-        </a>
+        </StyledA>
       </Link>
       <SubText>{subText}</SubText>
       <StyledLink href={playLink}>Play Now</StyledLink>
