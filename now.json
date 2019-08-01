@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/api/projects/?$",
-      "dest": "backend/routes/projects.js"
+      "dest": "backend/routxes/projects.js"
     },
     {
       "src": "/api/projects/(.+)$",

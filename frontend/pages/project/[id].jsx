@@ -1,13 +1,26 @@
-import { useRouter } from 'next/router';
 import React from 'react';
 
-export default function Post() {
-  const router = useRouter();
+const Post = (props) => {
 
   return (
     <>
-      <h1>{router.query.id}</h1>
+      <h1>{props.games.project.id}</h1>
       <p>This is the blog post content.</p>
+      {console.log(props)}
     </>
   );
-}
+};
+
+Post.getInitialProps = async ({ req, query: { id } }) => {
+  const baseUrl = req
+    ? `${req.headers['x-forwarded-proto']}://${req.headers['x-forwarded-host']}`
+    : window.location.origin;
+  const res = await fetch(`${baseUrl}/api/projects/${id}`);
+  const data = await res.json();
+
+  return {
+    games: data,
+  };
+};
+
+export default Post;
