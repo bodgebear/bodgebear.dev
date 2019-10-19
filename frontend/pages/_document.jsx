@@ -2,6 +2,8 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+import favicon from '../static/favicon.png';
+
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     // Step 1: Create an instance of ServerStyleSheet
@@ -22,6 +24,7 @@ export default class MyDocument extends Document {
       <html lang="en-GB">
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
+          <link rel="shortcut icon" type="image/png" href={favicon} />
           {this.props.styleTags}
         </Head>
         <body>
