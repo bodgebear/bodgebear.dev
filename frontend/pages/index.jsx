@@ -21,6 +21,7 @@ import teamData from '../constants/team';
 
 import gh from '../static/gh.png';
 import email from '../static/email.svg';
+import { projectPropTypes } from '../utils/proptypes/project';
 
 const App = ({ projects, team }) => (
   <>
@@ -110,13 +111,7 @@ const TeamPropTypes = PropTypes.shape({
 });
 
 App.propTypes = {
-  projects: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    mainImage: PropTypes.string.isRequired,
-    playNowUrl: PropTypes.string,
-  })).isRequired,
+  projects: PropTypes.arrayOf(projectPropTypes).isRequired,
   team: PropTypes.shape({
     core: PropTypes.arrayOf(TeamPropTypes).isRequired,
     friends: PropTypes.arrayOf(TeamPropTypes).isRequired,

@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'next/link';
 
 import { breakpoints } from '../../styles/variables';
 
-import BannerBearNoLogoUrl from '../../static/banner_bear_no_logo.png';
-import BannerBearNoLogoUrlAnim from '../../static/banner_bear_no_logo.gif';
-import BannerLogoUrl from '../../static/bb_name.png';
+import bannerBearNoLogoUrl from '../../static/banner_bear_no_logo.png';
+import bannerBearNoLogoUrlAnim from '../../static/banner_bear_no_logo.gif';
+import bannerLogoUrl from '../../static/bb_name.png';
 
-import BannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
+import bannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
 
 const Container = styled.header`
   width: 100%;
@@ -77,14 +78,21 @@ const ImgLogo = styled.img`
   image-rendering: pixelated;
 `;
 
+const getNoLogoUrl = ({ showBear, loading }) => {
+  if (!showBear) {
+    return bannerNoBearNoLogoUrl;
+  }
+
+  if (loading) {
+    return bannerBearNoLogoUrlAnim;
+  }
+
+  return bannerBearNoLogoUrl;
+};
+
 const HeroHeader = ({ showBear, loading }) => {
-  const urlNoLogo = showBear
-    ? (loading
-      ? BannerBearNoLogoUrlAnim
-      : BannerBearNoLogoUrl
-    )
-    : BannerNoBearNoLogoUrl;
-  const urlLogo = BannerLogoUrl;
+  const urlNoLogo = getNoLogoUrl({ showBear, loading });
+  const urlLogo = bannerLogoUrl;
 
   return (
     <Container showBear={showBear} loading={loading}>
@@ -100,6 +108,16 @@ const HeroHeader = ({ showBear, loading }) => {
       </ImageOverflowContainer>
     </Container>
   );
+};
+
+HeroHeader.propTypes = {
+  showBear: PropTypes.string,
+  loading: PropTypes.string,
+};
+
+HeroHeader.defaultProps = {
+  showBear: false,
+  loading: false,
 };
 
 export default HeroHeader;

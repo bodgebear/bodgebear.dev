@@ -22,6 +22,7 @@ import {
 } from '../../components/Typography';
 
 import redirect from '../../utils/redirect';
+import { projectPropTypes } from '../../utils/proptypes/project';
 
 const ProjectById = ({ project }) => (
   <>
@@ -80,6 +81,10 @@ ProjectById.getInitialProps = async ({ res, req, query }) => {
   } catch (error) {
     return { project: {} };
   }
+};
+
+ProjectById.propTypes = {
+  project: projectPropTypes.isRequired,
 };
 
 export default ProjectById;
