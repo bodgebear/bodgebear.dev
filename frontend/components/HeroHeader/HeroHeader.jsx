@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
+
 import { breakpoints } from '../../styles/variables';
 
-import BannerBearUrl from '../../static/banner_bear.png';
 import BannerBearNoLogoUrl from '../../static/banner_bear_no_logo.png';
 import BannerLogoUrl from '../../static/bb_name.png';
 
-import BannerNoBearUrl from '../../static/banner_no_bear.png';
 import BannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
 
 const Container = styled.header`
@@ -24,32 +24,21 @@ const ImageOverflowContainer = styled.div`
   width: 100%;
   height: ${props => (props.showBear ? '70rem' : '56rem')};
   overflow: hidden;
-  z-index: -1;
+  pointer-events: none;
 `;
 
-const Img = styled.img`
+const ImgNoLogo = styled.img`
   position: absolute;
-  height: ${props => (props.showBear ? '70rem' : '56rem')};
+  height: ${props => (props.showBear ? '50rem' : '40rem')};
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   image-rendering: pixelated;
-`;
-
-const ImgWithLogo = styled(Img)`
-  display: none;
-
-  @media (min-width: ${breakpoints.tablet}) {
-    display: unset;
-  }
-`;
-
-const ImgNoLogo = styled(Img)`
+  z-index: -1;
   display: unset;
-  height: ${props => (props.showBear ? '50rem' : '40rem')};
 
   @media (min-width: ${breakpoints.tablet}) {
-    display: none;
+    height: ${props => (props.showBear ? '70rem' : '56rem')};
   }
 `;
 
@@ -65,29 +54,35 @@ const ImgLogoContainer = styled.div`
   box-sizing: border-box;
 
   @media (min-width: ${breakpoints.tablet}) {
-    display: none;
+    height: 12.5rem;
   }
+`;
+
+const ImgLinkLogo = styled.a`
+  width: 100%;
+  max-width: 40rem;
 `;
 
 const ImgLogo = styled.img`
   width: 100%;
   image-rendering: pixelated;
-  max-width: 40rem;
 `;
 
 const HeroHeader = ({ showBear }) => {
-  const urlWithLogo = showBear ? BannerBearUrl : BannerNoBearUrl;
   const urlNoLogo = showBear ? BannerBearNoLogoUrl : BannerNoBearNoLogoUrl;
   const urlLogo = BannerLogoUrl;
 
   return (
     <Container showBear={showBear}>
+      <ImgLogoContainer showBear={showBear}>
+        <Link href="/" passHref>
+          <ImgLinkLogo>
+            <ImgLogo src={urlLogo} showBear={showBear} />
+          </ImgLinkLogo>
+        </Link>
+      </ImgLogoContainer>
       <ImageOverflowContainer showBear={showBear}>
-        <ImgWithLogo src={urlWithLogo} showBear={showBear} />
         <ImgNoLogo src={urlNoLogo} showBear={showBear} />
-        <ImgLogoContainer showBear={showBear}>
-          <ImgLogo src={urlLogo} showBear={showBear} />
-        </ImgLogoContainer>
       </ImageOverflowContainer>
     </Container>
   );

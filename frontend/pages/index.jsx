@@ -31,6 +31,7 @@ const App = ({ projects, team }) => (
         {projects.map(project => (
           <Game
             key={project.id}
+            id={project.id}
             name={project.title}
             subtitle={project.description}
             image={project.mainImage}
