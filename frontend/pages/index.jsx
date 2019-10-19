@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import absoluteUrl from 'next-absolute-url';
 
 import GlobalStyles from '../styles/global';
+import emojiurlifier from '../utils/emojiurlifier';
 
 import Grid from '../components/Grid';
 import Layout from '../components/Layout';
@@ -77,11 +78,15 @@ const App = ({ projects, team }) => (
   </>
 );
 
-App.getInitialProps = async ({ req }) => {
+App.getInitialProps = async ({ res, req }) => {
   const { origin } = absoluteUrl(req);
   const apiURL = `${origin}/api/projects`;
 
-  const projectsResponse = await (fetch(apiURL).then(res => res.json()));
+  if (emojiurlifier(req, res)) {
+    return {};
+  }
+
+  const projectsResponse = await (fetch(apiURL).then(projectRes => projectRes.json()));
   const { projects } = projectsResponse;
 
   const projectsCopy = projects.map(project => ({ ...project }));
