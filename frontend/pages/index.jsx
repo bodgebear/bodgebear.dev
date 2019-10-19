@@ -1,5 +1,6 @@
 import React from 'react';
 import fetch from 'isomorphic-unfetch';
+import absoluteUrl from 'next-absolute-url';
 
 import GlobalStyles from '../styles/global';
 
@@ -75,8 +76,11 @@ const App = ({ projects, team }) => (
   </>
 );
 
-App.getInitialProps = async () => {
-  const projectsResponse = await (fetch(`${process.env.API_HOST}/api/projects`).then(res => res.json()));
+App.getInitialProps = async ({ req }) => {
+  const { origin } = absoluteUrl(req);
+  const apiURL = `${origin}/api/projects`;
+
+  const projectsResponse = await (fetch(apiURL).then(res => res.json()));
   const { projects } = projectsResponse;
 
   const projectsCopy = projects.map(project => ({ ...project }));
