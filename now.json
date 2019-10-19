@@ -2,11 +2,29 @@
   "name": "bodgingbear.dev",
   "version": 2,
   "alias": ["bodgingbear.dev", "xn--rihx924p.ws"],
+  "builds": [
+    { "src": "frontend/next.config.js", "use": "@now/next" },
+    { "src": "backend/routes/*.js", "use": "@now/node" }
+  ],
+  "env": {
+    "TOKEN": "@bodgingbear.dev-gh_token"
+  },
   "routes": [
     {
-      "src": "/(.*)",
-      "status": 301,
-      "headers": { "Location": "https://konduktor.bodgingbear.dev/$1" }
+      "src": "/api/projects/?$",
+      "dest": "backend/routes/projects.js"
+    },
+    {
+      "src": "/api/projects/(.+)$",
+      "dest": "backend/routes/projectById.js?project=$1"
+    },
+    {
+      "src": "/",
+      "dest": "frontend/index"
+    },
+    {
+      "src": "^/_next/(.*)",
+      "dest": "frontend/_next/$1"
     }
   ]
 }

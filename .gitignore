@@ -1,0 +1,11 @@
+backend/.env
+frontend/.env
+
+backend/node_modules
+frontend/node_modules
+
+.idea
+.DS_Store
+.next
+.DS_Store
+.env
