@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import Button from '../Button';
 import Center from '../Center';
@@ -10,19 +11,26 @@ const Image = styled.img`
   width: 100%;
 `;
 
+const A = styled.a`
+  display: block;
+  text-decoration: none;
+`;
+
 const Game = ({
   image, name, subtitle, playNowUrl,
 }) => (
-  <div>
-    <Image src={image} />
-    <Paragraph center>{name}</Paragraph>
-    <Paragraph muted center noMargin="top">{subtitle}</Paragraph>
-    {playNowUrl && (
-      <Center>
-        <Button href={playNowUrl} as="a" target="_blank">Play now!</Button>
-      </Center>
-    )}
-  </div>
+  <Link href="/projects/[id]" as="/projects/nadgorliwy-konduktor" passHref>
+    <a>
+      <Image src={image} />
+      <Paragraph center>{name}</Paragraph>
+      <Paragraph muted center noMargin="top">{subtitle}</Paragraph>
+      {playNowUrl && (
+        <Center>
+          <Button href={playNowUrl} as="a" target="_blank">Play now!</Button>
+        </Center>
+      )}
+    </a>
+  </Link>
 );
 
 Game.propTypes = {
