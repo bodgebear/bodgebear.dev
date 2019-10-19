@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Paragraph } from '../Typography';
 
 const Container = styled.div`
-  margin: 2rem 1rem;
+  margin: 0 1rem 2rem;
   width: 15rem;
 `;
 

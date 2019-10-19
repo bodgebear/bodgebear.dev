@@ -1,11 +1,11 @@
 const formatProject = ({
-  description,
+  readme,
   playNowUrl,
   ...websiteConfig
 }) => ({
   ...websiteConfig,
-  description: description.replace(/^\n+/, "").replace(/\n+$/, ""),
-  playNowUrl: `https://${playNowUrl}`,
+  readme: readme.replace(/^\n+/, "").replace(/\n+$/, ""),
+  playNowUrl: playNowUrl !== null ? `https://${playNowUrl}` : null,
 })
 
 module.exports = formatProject;

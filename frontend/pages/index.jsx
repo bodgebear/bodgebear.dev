@@ -1,4 +1,6 @@
 import React from 'react';
+import fetch from 'isomorphic-unfetch';
+
 import GlobalStyles from '../styles/global';
 
 import Grid from '../components/Grid';
@@ -11,82 +13,53 @@ import { H1, H2 } from '../components/Typography';
 import Copyright from '../components/Copyright';
 import ContactMeans from '../components/ContactMeans';
 
-import bl from '../static/people/bl_8bit.png';
-import kp from '../static/people/kp_8bit.png';
+import bl from '../static/people/bartek.png';
+import kp from '../static/people/kacper.png';
 
-import rp from '../static/people/rp_8bit.png';
-import ab from '../static/people/ab_8bit.png';
-import mn from '../static/people/mn_8bit.png';
+import rp from '../static/people/rafal.png';
+import ab from '../static/people/arek.png';
 
-import konduktor from '../static/games/1_konduktor.png';
-import whymit from '../static/games/2_whymit.png';
-import laika from '../static/games/3_laika_wracaj.png';
-import ftb from '../static/games/6_ftb.png';
 import gh from '../static/gh.png';
 import email from '../static/email.svg';
 
-const App = () => (
+const App = ({ projects, team }) => (
   <>
     <GlobalStyles />
     <HeroHeader />
     <Layout>
       <H1 uppercase center>Our games</H1>
       <Grid rows={3} gap="3rem">
-        <Game
-          name="Nadgorliwy konduktor"
-          subtitle="Push people into the train"
-          image={konduktor}
-        />
-        <Game
-          name="WHYMIT"
-          subtitle="Two students measure a bridge"
-          image={whymit}
-        />
-        <Game
-          name="Laika Wracaj!"
-          subtitle="Help Laika find the way home"
-          image={laika}
-        />
-        <Game
-          name="Feed The Bob"
-          subtitle="Feed this bad boy"
-          image={ftb}
-        />
+        {projects.map(project => (
+          <Game
+            key={project.id}
+            name={project.title}
+            subtitle={project.description}
+            image={project.mainImage}
+            playNowUrl={project.playNowUrl}
+          />
+        ))}
       </Grid>
       <H1 uppercase center>Our team</H1>
       <SpaceEvenly>
-        <>
+        {team.core.map(teamMember => (
           <Person
-            name="Bartek Legięć"
-            position="Programming & Art"
-            image={bl}
+            key={teamMember.name}
+            name={teamMember.name}
+            position={teamMember.position}
+            image={teamMember.image}
           />
-          <Person
-            name="Kacper Pietrzak"
-            position="Programming & Sounds"
-            image={kp}
-          />
-        </>
+        ))}
       </SpaceEvenly>
-      <H2 uppercase center muted>Friends</H2>
+      <H2 uppercase center muted noMargin="top">Friends</H2>
       <SpaceEvenly>
-        <>
+        {team.friends.map(teamMember => (
           <Person
-            name="Rafał Piórek"
-            position="Programming"
-            image={rp}
+            key={teamMember.name}
+            name={teamMember.name}
+            position={teamMember.position}
+            image={teamMember.image}
           />
-          <Person
-            name="Arek Borysiuk"
-            position="Art & Sounds"
-            image={ab}
-          />
-          <Person
-            name="Magda Nowak"
-            position="Art"
-            image={mn}
-          />
-        </>
+        ))}
       </SpaceEvenly>
       <H1 uppercase center>Contact us</H1>
       <SpaceEvenly>
@@ -103,8 +76,48 @@ const App = () => (
       </SpaceEvenly>
       <Copyright />
     </Layout>
-    {/* <Button>Play now!</Button> */}
   </>
 );
+
+App.getInitialProps = async () => {
+  const projectsResponse = await (fetch(`${process.env.API_HOST}/api/projects`).then(res => res.json()));
+  const { projects } = projectsResponse;
+
+  const projectsCopy = projects.map(project => ({ ...project }));
+  projectsCopy
+    .sort((projectB, projectA) => new Date(projectA.createdAt) - new Date(projectB.createdAt));
+
+  const team = {
+    core: [
+      {
+        name: 'Bartek Legięć',
+        position: 'Programming & Art',
+        image: bl,
+      },
+      {
+        name: 'Kacper Pietrzak',
+        position: 'Programming & Sounds',
+        image: kp,
+      },
+    ],
+    friends: [
+      {
+        name: 'Rafał Piórek',
+        position: 'Programming',
+        image: rp,
+      },
+      {
+        name: 'Arek Borysiuk',
+        position: 'Art & Sounds',
+        image: ab,
+      },
+    ],
+  };
+
+  return {
+    projects: projectsCopy,
+    team,
+  };
+};
 
 export default App;

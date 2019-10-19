@@ -28,6 +28,7 @@ const Button = styled('button')`
   transition-property: color, background;
   outline: 0;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover,
   &:focus {
