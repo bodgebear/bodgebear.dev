@@ -111,8 +111,8 @@ const HeroHeader = ({ showBear, loading }) => {
 };
 
 HeroHeader.propTypes = {
-  showBear: PropTypes.string,
-  loading: PropTypes.string,
+  showBear: PropTypes.bool,
+  loading: PropTypes.bool,
 };
 
 HeroHeader.defaultProps = {

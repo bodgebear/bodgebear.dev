@@ -11,7 +11,10 @@ export default class Loading extends React.Component {
   }
 
   static propTypes = {
-    children: PropTypes.func,
+    children: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.arrayOf(PropTypes.element),
+    ]),
   }
 
   static defaultProps = {
