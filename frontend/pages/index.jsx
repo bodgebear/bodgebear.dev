@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import absoluteUrl from 'next-absolute-url';
 
@@ -14,7 +15,7 @@ import { H1, H2 } from '../components/Typography';
 import Copyright from '../components/Copyright';
 import ContactMeans from '../components/ContactMeans';
 
-import team from '../constants/team';
+import teamData from '../constants/team';
 
 import gh from '../static/gh.png';
 import email from '../static/email.svg';
@@ -89,8 +90,28 @@ App.getInitialProps = async ({ req }) => {
 
   return {
     projects: projectsCopy,
-    team,
+    team: teamData,
   };
+};
+
+const TeamPropTypes = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+});
+
+App.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    mainImage: PropTypes.string.isRequired,
+    playNowUrl: PropTypes.string,
+  })).isRequired,
+  team: PropTypes.shape({
+    core: PropTypes.arrayOf(TeamPropTypes).isRequired,
+    friends: PropTypes.arrayOf(TeamPropTypes).isRequired,
+  }).isRequired,
 };
 
 export default App;
