@@ -1,15 +1,9 @@
-import React from 'react';
-import StyledButton from 'components/elements/Button';
-import Header from '../Header';
-import Main from './styles';
+import styled from 'styled-components';
 
-const Layout = () => (
-  <>
-    <Header hasBear />
-    <Main>
-      <StyledButton>Player</StyledButton>
-    </Main>
-  </>
-);
+const Layout = styled.main`
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+`;
 
 export default Layout;
