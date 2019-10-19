@@ -13,11 +13,7 @@ import { H1, H2 } from '../components/Typography';
 import Copyright from '../components/Copyright';
 import ContactMeans from '../components/ContactMeans';
 
-import bl from '../static/people/bartek.png';
-import kp from '../static/people/kacper.png';
-
-import rp from '../static/people/rafal.png';
-import ab from '../static/people/arek.png';
+import team from '../constants/team';
 
 import gh from '../static/gh.png';
 import email from '../static/email.svg';
@@ -28,7 +24,7 @@ const App = ({ projects, team }) => (
     <HeroHeader />
     <Layout>
       <H1 uppercase center>Our games</H1>
-      <Grid rows={3} gap="3rem">
+      <Grid gap="3rem" colsTemplate="repeat(auto-fit, minmax(18rem, 1fr))">
         {projects.map(project => (
           <Game
             key={project.id}
@@ -86,33 +82,6 @@ App.getInitialProps = async () => {
   const projectsCopy = projects.map(project => ({ ...project }));
   projectsCopy
     .sort((projectB, projectA) => new Date(projectA.createdAt) - new Date(projectB.createdAt));
-
-  const team = {
-    core: [
-      {
-        name: 'Bartek Legięć',
-        position: 'Programming & Art',
-        image: bl,
-      },
-      {
-        name: 'Kacper Pietrzak',
-        position: 'Programming & Sounds',
-        image: kp,
-      },
-    ],
-    friends: [
-      {
-        name: 'Rafał Piórek',
-        position: 'Programming',
-        image: rp,
-      },
-      {
-        name: 'Arek Borysiuk',
-        position: 'Art & Sounds',
-        image: ab,
-      },
-    ],
-  };
 
   return {
     projects: projectsCopy,

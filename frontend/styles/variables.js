@@ -14,3 +14,9 @@ export const buttonBackgroundHovered = white;
 export const buttonColorHovered = black;
 export const buttonBackgroundDisabled = '#555454';
 export const buttonColorDisabled = mutedGrey;
+
+export const breakpoints = {
+  mobile: '42rem',
+  tablet: '60rem',
+  desktopSm: '70rem',
+};
