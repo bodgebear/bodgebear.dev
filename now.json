@@ -1,7 +1,7 @@
 {
   "name": "bodgingbear.dev",
   "version": 2,
-  "alias": ["bodgingbear.dev"],
+  "alias": ["bodgingbear.dev", "xn--rihx924p.ws"],
   "builds": [
     { "src": "frontend/next.config.js", "use": "@now/next" },
     { "src": "backend/routes/*.js", "use": "@now/node" }
