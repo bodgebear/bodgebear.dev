@@ -5,6 +5,7 @@ import absoluteUrl from 'next-absolute-url';
 import ReactMarkdown from 'react-markdown';
 import RemarkBreaks from 'remark-breaks';
 import RemarkEmoji from 'remark-emoji';
+import RemarkBehead from 'remark-behead';
 
 import GlobalStyles from '../../styles/global';
 import Layout from '../../components/Layout';
@@ -18,7 +19,7 @@ import Image from '../../components/Image';
 import Loading from '../../components/Loading';
 
 import {
-  Text, H1, H2, Paragraph,
+  Text, H1, H2, H3, Paragraph,
 } from '../../components/Typography';
 
 import redirect from '../../utils/redirect';
@@ -33,7 +34,11 @@ const ProjectById = ({ project }) => (
         <ProjectHeroImage src={project.mainImage} />
         <ReactMarkdown
           source={project.readme}
-          plugins={[RemarkBreaks, RemarkEmoji]}
+          plugins={[
+            RemarkBreaks,
+            RemarkEmoji,
+            [RemarkBehead, { depth: 1 }],
+          ]}
           linkTarget="_blank"
           renderers={{
             paragraph: props => <Paragraph muted {...props} />,
@@ -49,6 +54,9 @@ const ProjectById = ({ project }) => (
                 }
                 case 2: {
                   return <H2 {...props} />;
+                }
+                case 3: {
+                  return <H3 {...props} />;
                 }
                 default: {
                   return <Text {...props} />;
@@ -69,18 +77,18 @@ ProjectById.getInitialProps = async ({ res, req, query }) => {
     return redirect(res, '/');
   }
 
-  try {
-    const { origin } = absoluteUrl(req);
-    const apiURL = `${origin}/api/projects/${projectId}`;
+  const { origin } = absoluteUrl(req);
+  const apiURL = `${origin}/api/projects/${projectId}`;
 
-    const projectResponse = await (await fetch(apiURL)).json();
+  const { project } = await (await fetch(apiURL)).json();
 
-    return {
-      project: projectResponse.project,
-    };
-  } catch (error) {
-    return { project: {} };
+  if (project === undefined) {
+    return redirect(res, '/');
   }
+
+  return {
+    project,
+  };
 };
 
 ProjectById.propTypes = {
