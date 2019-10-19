@@ -15,66 +15,71 @@ import Game from '../components/Game';
 import { H1, H2 } from '../components/Typography';
 import Copyright from '../components/Copyright';
 import ContactMeans from '../components/ContactMeans';
+import Loading from '../components/Loading';
 
 import teamData from '../constants/team';
 
 import gh from '../static/gh.png';
 import email from '../static/email.svg';
+import { projectPropTypes } from '../utils/proptypes/project';
 
 const App = ({ projects, team }) => (
   <>
     <GlobalStyles />
-    <HeroHeader />
-    <Layout>
-      <H1 uppercase center>Our games</H1>
-      <Grid gap="3rem" colsTemplate="repeat(auto-fit, minmax(18rem, 1fr))">
-        {projects.map(project => (
-          <Game
-            key={project.id}
-            name={project.title}
-            subtitle={project.description}
-            image={project.mainImage}
-            playNowUrl={project.playNowUrl}
+    <Loading>
+      <HeroHeader showBear />
+      <Layout>
+        <H1 uppercase center>Our games</H1>
+        <Grid gap="3rem" colsTemplate="repeat(auto-fit, minmax(18rem, 1fr))">
+          {projects.map(project => (
+            <Game
+              key={project.id}
+              id={project.id}
+              name={project.title}
+              subtitle={project.description}
+              image={project.mainImage}
+              playNowUrl={project.playNowUrl}
+            />
+          ))}
+        </Grid>
+        <H1 uppercase center>Our team</H1>
+        <SpaceEvenly>
+          {team.core.map(teamMember => (
+            <Person
+              key={teamMember.name}
+              name={teamMember.name}
+              position={teamMember.position}
+              image={teamMember.image}
+            />
+          ))}
+        </SpaceEvenly>
+        <H2 uppercase center muted noMargin="top">Friends</H2>
+        <SpaceEvenly>
+          {team.friends.map(teamMember => (
+            <Person
+              key={teamMember.name}
+              name={teamMember.name}
+              position={teamMember.position}
+              image={teamMember.image}
+            />
+          ))}
+        </SpaceEvenly>
+        <H1 uppercase center>Contact us</H1>
+        <SpaceEvenly>
+          <ContactMeans
+            text="team@bodgingbear.dev"
+            image={email}
+            link="mailto:team@bodgingbear.dev"
           />
-        ))}
-      </Grid>
-      <H1 uppercase center>Our team</H1>
-      <SpaceEvenly>
-        {team.core.map(teamMember => (
-          <Person
-            key={teamMember.name}
-            name={teamMember.name}
-            position={teamMember.position}
-            image={teamMember.image}
+          <ContactMeans
+            text="/bodgingbear"
+            image={gh}
+            link="https://github.com/bodgingbear"
           />
-        ))}
-      </SpaceEvenly>
-      <H2 uppercase center muted noMargin="top">Friends</H2>
-      <SpaceEvenly>
-        {team.friends.map(teamMember => (
-          <Person
-            key={teamMember.name}
-            name={teamMember.name}
-            position={teamMember.position}
-            image={teamMember.image}
-          />
-        ))}
-      </SpaceEvenly>
-      <H1 uppercase center>Contact us</H1>
-      <SpaceEvenly>
-        <ContactMeans
-          text="team@bodgingbear.dev"
-          image={email}
-          link="mailto:team@bodgingbear.dev"
-        />
-        <ContactMeans
-          text="/bodgingbear"
-          image={gh}
-          link="https://github.com/bodgingbear"
-        />
-      </SpaceEvenly>
-      <Copyright />
-    </Layout>
+        </SpaceEvenly>
+        <Copyright />
+      </Layout>
+    </Loading>
   </>
 );
 
@@ -106,13 +111,7 @@ const TeamPropTypes = PropTypes.shape({
 });
 
 App.propTypes = {
-  projects: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    mainImage: PropTypes.string.isRequired,
-    playNowUrl: PropTypes.string,
-  })).isRequired,
+  projects: PropTypes.arrayOf(projectPropTypes).isRequired,
   team: PropTypes.shape({
     core: PropTypes.arrayOf(TeamPropTypes).isRequired,
     friends: PropTypes.arrayOf(TeamPropTypes).isRequired,

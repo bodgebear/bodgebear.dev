@@ -23,7 +23,6 @@ export default class MyDocument extends Document {
     return (
       <html lang="en-GB">
         <Head>
-          <title>Bodging Bear</title>
           <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" type="image/png" href={favicon} />
           {this.props.styleTags}

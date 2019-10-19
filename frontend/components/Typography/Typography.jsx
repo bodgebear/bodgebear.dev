@@ -29,8 +29,15 @@ const H1Styles = styled(Text)`
 export const H1 = props => (<H1Styles as="h1" {...props} />);
 
 const H2Styles = styled(Text)`
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 400;
 `;
 
 export const H2 = props => (<H2Styles as="h2" {...props} />);
+
+const H3Styles = styled(Text)`
+  font-size: 1.5rem;
+  font-weight: 400;
+`;
+
+export const H3 = props => (<H3Styles as="h3" {...props} />);

@@ -23,6 +23,10 @@
       "dest": "frontend/index"
     },
     {
+      "src": "/projects/(.+)$",
+      "dest": "frontend/projects/$1"
+    },
+    {
       "src": "^/_next/(.*)",
       "dest": "frontend/_next/$1"
     }

@@ -2,6 +2,7 @@ const routes = require('./routes');
 
 module.exports = {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "rules": {
     "import/prefer-default-export": 0
   },

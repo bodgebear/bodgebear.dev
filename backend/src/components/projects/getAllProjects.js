@@ -42,10 +42,18 @@ module.exports = async () => {
     const readmeFileContent = readmeFile && readmeFile.text;
     const nowConfigFileContent = nowFile && JSON.parse(nowFile.text);
 
+    let readme = null;
+
+    if (readmeForWebsite !== null && readmeForWebsite.trim() !== '') {
+      readme = readmeForWebsite;
+    } else if (readmeFileContent !== null && readmeFileContent.trim() !== '') {
+      readme = readmeFileContent;
+    }
+
     return formatProject({
       id: name,
       description: description,
-      readme: readmeForWebsite || readmeFileContent || null,
+      readme: readme,
       playNowUrl:
         websiteConfig.playNowUrl
         || (nowConfigFileContent && nowConfigFileContent.alias[0])
