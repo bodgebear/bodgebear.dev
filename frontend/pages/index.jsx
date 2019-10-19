@@ -24,7 +24,7 @@ import email from '../static/email.svg';
 const App = ({ projects, team }) => (
   <>
     <GlobalStyles />
-    <HeroHeader />
+    <HeroHeader showBear />
     <Layout>
       <H1 uppercase center>Our games</H1>
       <Grid gap="3rem" colsTemplate="repeat(auto-fit, minmax(18rem, 1fr))">

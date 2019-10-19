@@ -3,37 +3,40 @@ import styled from 'styled-components';
 import { breakpoints } from '../../styles/variables';
 
 import BannerBearUrl from '../../static/banner_bear.png';
-import BannerBearBoLogoUrl from '../../static/banner_bear_no_logo.png';
+import BannerBearNoLogoUrl from '../../static/banner_bear_no_logo.png';
 import BannerLogoUrl from '../../static/bb_name.png';
+
+import BannerNoBearUrl from '../../static/banner_no_bear.png';
+import BannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
 
 const Container = styled.header`
   width: 100%;
   position: relative;
-  height: 25rem;
+  height: ${props => (props.showBear ? '25rem' : '16rem')};
 
   @media (min-width: ${breakpoints.tablet}) {
-    height: 35rem;
+    height: ${props => (props.showBear ? '35rem' : '23rem')};
   }
 `;
 
 const ImageOverflowContainer = styled.div`
   position: absolute;
   width: 100%;
-  height: 70rem;
+  height: ${props => (props.showBear ? '70rem' : '56rem')};
   overflow: hidden;
   z-index: -1;
 `;
 
 const Img = styled.img`
   position: absolute;
-  height: 70rem;
+  height: ${props => (props.showBear ? '70rem' : '56rem')};
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   image-rendering: pixelated;
 `;
 
-const ImgBearWithLogo = styled(Img)`
+const ImgWithLogo = styled(Img)`
   display: none;
 
   @media (min-width: ${breakpoints.tablet}) {
@@ -41,9 +44,9 @@ const ImgBearWithLogo = styled(Img)`
   }
 `;
 
-const ImgBearNoLogo = styled(Img)`
+const ImgNoLogo = styled(Img)`
   display: unset;
-  height: 50rem;
+  height: ${props => (props.showBear ? '50rem' : '40rem')};
 
   @media (min-width: ${breakpoints.tablet}) {
     display: none;
@@ -72,17 +75,22 @@ const ImgLogo = styled.img`
   max-width: 40rem;
 `;
 
-const HeroHeader = () => (
-  <Container>
-    <ImageOverflowContainer>
-      <ImgBearWithLogo src={BannerBearUrl} />
-      <ImgBearWithLogo src={BannerBearUrl} />
-      <ImgBearNoLogo src={BannerBearBoLogoUrl} />
-      <ImgLogoContainer>
-        <ImgLogo src={BannerLogoUrl} />
-      </ImgLogoContainer>
-    </ImageOverflowContainer>
-  </Container>
-);
+const HeroHeader = ({ showBear }) => {
+  const urlWithLogo = showBear ? BannerBearUrl : BannerNoBearUrl;
+  const urlNoLogo = showBear ? BannerBearNoLogoUrl : BannerNoBearNoLogoUrl;
+  const urlLogo = BannerLogoUrl;
+
+  return (
+    <Container showBear={showBear}>
+      <ImageOverflowContainer showBear={showBear}>
+        <ImgWithLogo src={urlWithLogo} showBear={showBear} />
+        <ImgNoLogo src={urlNoLogo} showBear={showBear} />
+        <ImgLogoContainer showBear={showBear}>
+          <ImgLogo src={urlLogo} showBear={showBear} />
+        </ImgLogoContainer>
+      </ImageOverflowContainer>
+    </Container>
+  );
+};
 
 export default HeroHeader;
