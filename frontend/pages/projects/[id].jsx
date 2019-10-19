@@ -15,6 +15,8 @@ import Copyright from '../../components/Copyright';
 import { List, ListItem } from '../../components/List';
 import Link from '../../components/Link';
 import Image from '../../components/Image';
+import Loading from '../../components/Loading';
+
 import {
   Text, H1, H2, Paragraph,
 } from '../../components/Typography';
@@ -24,37 +26,39 @@ import redirect from '../../utils/redirect';
 const ProjectById = ({ project }) => (
   <>
     <GlobalStyles />
-    <HeroHeader />
-    <Layout>
-      <ProjectHeroImage src={project.mainImage} />
-      <ReactMarkdown
-        source={project.readme}
-        plugins={[RemarkBreaks, RemarkEmoji]}
-        linkTarget="_blank"
-        renderers={{
-          paragraph: props => <Paragraph muted {...props} />,
-          strong: Text,
-          image: Image,
-          list: List,
-          listItem: ListItem,
-          link: Link,
-          heading: ({ level, ...props }) => {
-            switch (level) {
-              case 1: {
-                return <H1 {...props} />;
+    <Loading>
+      <HeroHeader />
+      <Layout>
+        <ProjectHeroImage src={project.mainImage} />
+        <ReactMarkdown
+          source={project.readme}
+          plugins={[RemarkBreaks, RemarkEmoji]}
+          linkTarget="_blank"
+          renderers={{
+            paragraph: props => <Paragraph muted {...props} />,
+            strong: Text,
+            image: Image,
+            list: List,
+            listItem: ListItem,
+            link: Link,
+            heading: ({ level, ...props }) => {
+              switch (level) {
+                case 1: {
+                  return <H1 {...props} />;
+                }
+                case 2: {
+                  return <H2 {...props} />;
+                }
+                default: {
+                  return <Text {...props} />;
+                }
               }
-              case 2: {
-                return <H2 {...props} />;
-              }
-              default: {
-                return <Text {...props} />;
-              }
-            }
-          },
-        }}
-      />
-    </Layout>
-    <Copyright />
+            },
+          }}
+        />
+      </Layout>
+      <Copyright />
+    </Loading>
   </>
 );
 

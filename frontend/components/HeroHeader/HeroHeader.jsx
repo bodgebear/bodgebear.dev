@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { breakpoints } from '../../styles/variables';
 
 import BannerBearNoLogoUrl from '../../static/banner_bear_no_logo.png';
+import BannerBearNoLogoUrlAnim from '../../static/banner_bear_no_logo.gif';
 import BannerLogoUrl from '../../static/bb_name.png';
 
 import BannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
@@ -12,11 +13,19 @@ import BannerNoBearNoLogoUrl from '../../static/banner_no_bear_no_logo.png';
 const Container = styled.header`
   width: 100%;
   position: relative;
-  height: ${props => (props.showBear ? '25rem' : '16rem')};
+  ${props => (!props.loading
+    ? `
+      height: ${props.showBear ? '25rem' : '16rem'};
 
-  @media (min-width: ${breakpoints.tablet}) {
-    height: ${props => (props.showBear ? '35rem' : '23rem')};
-  }
+      @media (min-width: ${breakpoints.tablet}) {
+        height: ${props.showBear ? '35rem' : '23rem'};
+      }
+    `
+    : `
+      height: 100vh;
+      overflow: hidden;
+    `)
+}
 `;
 
 const ImageOverflowContainer = styled.div`
@@ -68,12 +77,17 @@ const ImgLogo = styled.img`
   image-rendering: pixelated;
 `;
 
-const HeroHeader = ({ showBear }) => {
-  const urlNoLogo = showBear ? BannerBearNoLogoUrl : BannerNoBearNoLogoUrl;
+const HeroHeader = ({ showBear, loading }) => {
+  const urlNoLogo = showBear
+    ? (loading
+      ? BannerBearNoLogoUrlAnim
+      : BannerBearNoLogoUrl
+    )
+    : BannerNoBearNoLogoUrl;
   const urlLogo = BannerLogoUrl;
 
   return (
-    <Container showBear={showBear}>
+    <Container showBear={showBear} loading={loading}>
       <ImgLogoContainer showBear={showBear}>
         <Link href="/" passHref>
           <ImgLinkLogo>
