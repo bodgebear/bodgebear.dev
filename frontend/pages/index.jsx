@@ -79,12 +79,12 @@ const App = ({ projects, team }) => (
 );
 
 App.getInitialProps = async ({ res, req }) => {
-  const { origin } = absoluteUrl(req);
-  const apiURL = `${origin}/api/projects`;
-
   if (emojiurlifier(req, res)) {
     return {};
   }
+
+  const { origin } = absoluteUrl(req);
+  const apiURL = `${origin}/api/projects`;
 
   const projectsResponse = await (fetch(apiURL).then(projectRes => projectRes.json()));
   const { projects } = projectsResponse;

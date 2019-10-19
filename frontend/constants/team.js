@@ -2,7 +2,7 @@ import bl from '../static/people/bartek.png';
 import kp from '../static/people/kacper.png';
 
 import rp from '../static/people/rafal.png';
-import ab from '../static/people/arek.png';
+// import ab from '../static/people/arek.png';
 
 const team = {
   core: [
@@ -23,11 +23,11 @@ const team = {
       position: 'Programming',
       image: rp,
     },
-    {
-      name: 'Arek Borysiuk',
-      position: 'Art & Sounds',
-      image: ab,
-    },
+    // {
+    //   name: 'Arek Borysiuk',
+    //   position: 'Art & Sounds',
+    //   image: ab,
+    // },
   ],
 };
 
