@@ -10,6 +10,7 @@ const LinkStyled = styled(Text)`
   color: ${mutedGrey};
   transition: 0.1s ease-in-out;
   transition-property: color;
+  word-break: break-all;
 
   &:hover,
   &:focus {
