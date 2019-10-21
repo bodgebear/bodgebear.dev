@@ -3,7 +3,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 import favicon from '../static/favicon.png';
-import ogImage from '../static/og:image.png';
+import ogImage from '../static/banner.png';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
