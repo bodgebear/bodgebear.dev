@@ -3,6 +3,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 import favicon from '../static/favicon.png';
+import ogImage from '../static/banner.png';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -25,6 +26,10 @@ export default class MyDocument extends Document {
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" type="image/png" href={favicon} />
+          <meta property="og:title" content="Bodging Bear" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://bodgingbear.dev/" />
+          <meta property="og:image" content={`https://bodgingbear.dev${ogImage}`} />
           {this.props.styleTags}
         </Head>
         <body>
