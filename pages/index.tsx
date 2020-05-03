@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next';
-import { Project } from 'types/Project';
-import { projects as defaultProjects } from 'constants/projects';
+import { HomePageProject } from 'types/HomePageProject';
+import { pages as pagesData } from '_content/pages';
 import Home from 'views/HomePage';
 
 interface HomeProps {
-  projects: Project[];
+  projects: HomePageProject[];
 }
 
 const HomePage: React.FC<HomeProps> = ({ projects }) => (
@@ -13,7 +13,13 @@ const HomePage: React.FC<HomeProps> = ({ projects }) => (
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => ({
   props: {
-    projects: defaultProjects,
+    projects: pagesData.map((page) => ({
+      id: page.id,
+      name: page.name,
+      description: page.description,
+      image: page.image,
+      playNowUrl: page.playNowUrl || null,
+    })),
   },
 });
 

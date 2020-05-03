@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 import { Paragraph } from 'components/Typography';
 import Center from 'components/Center';
-import { Project } from 'types/Project';
+import { HomePageProject } from 'types/HomePageProject';
 
 import { A, Image, ButtonLink } from './Game.styled';
 
-interface GameProps extends Project {}
+interface GameProps extends HomePageProject {}
 
 const Game: React.FC<GameProps> = ({
   id,

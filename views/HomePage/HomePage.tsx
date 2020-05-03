@@ -1,4 +1,4 @@
-import { Project } from 'types/Project';
+import { HomePageProject } from 'types/HomePageProject';
 import HeroHeader from 'components/HeroHeader';
 import Layout from 'components/Layout';
 import { H1, H2 } from 'components/Typography';
@@ -9,13 +9,13 @@ import Person from 'components/Person';
 import ContactMeans from 'components/ContactMeans';
 import Copyright from 'components/Copyright';
 
-import team from 'constants/team';
+import team from '_content/team';
 
 import ghIconUrl from 'assets/gh.png';
 import emailIconUrl from 'assets/email.svg';
 
 interface HomeProps {
-  projects: Project[];
+  projects: HomePageProject[];
 }
 
 const Home: React.FC<HomeProps> = ({ projects }) => (
@@ -32,7 +32,6 @@ const Home: React.FC<HomeProps> = ({ projects }) => (
             description={project.description}
             image={project.image}
             playNowUrl={project.playNowUrl}
-            readme={project.readme}
           />
         ))}
       </Grid>

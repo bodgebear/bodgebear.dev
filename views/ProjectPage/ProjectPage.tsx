@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import RemarkBreaks from 'remark-breaks';
 import RemarkEmoji from 'remark-emoji';
 
-import { Project as ProjectType } from 'types/Project';
+import { Project as ProjectType } from 'types/ProjectPageProject';
 
 import { Text, Paragraph } from 'components/Typography';
 import HeroHeader from 'components/HeroHeader';
@@ -24,24 +24,26 @@ const Project: React.FC<ProjectProps> = ({ project }) => (
   <>
     <HeroHeader />
     <Layout>
-      <Image src={project.image} />
-      <ReactMarkdown
-        source={project.readme}
-        plugins={[
-          RemarkBreaks,
-          RemarkEmoji,
-        ]}
-        linkTarget="_blank"
-        renderers={{
-          paragraph: MutedParagraph,
-          strong: Text,
-          image: Image,
-          list: List,
-          listItem: ListItem,
-          link: Link,
-          heading: MarkdownHeader,
-        }}
-      />
+      {project.readme && (
+        <ReactMarkdown
+          source={project.readme}
+          plugins={[
+            RemarkBreaks,
+            RemarkEmoji,
+          ]}
+          linkTarget="_blank"
+          renderers={{
+            paragraph: MutedParagraph,
+            strong: Text,
+            inlineCode: Text,
+            image: Image,
+            list: List,
+            listItem: ListItem,
+            link: Link,
+            heading: MarkdownHeader,
+          }}
+        />
+      )}
     </Layout>
     <Copyright />
   </>

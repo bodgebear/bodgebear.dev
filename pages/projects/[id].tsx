@@ -1,14 +1,27 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Project as ProjectType } from 'types/Project';
-import { projects as defaultProjects } from 'constants/projects';
+import Head from 'next/head';
+
+import { Project as ProjectType } from 'types/ProjectPageProject';
 import Project from 'views/ProjectPage';
+import { getRepo } from 'utils/getRepo';
+
+import { pages as pagesData } from '_content/pages';
 
 interface ProjectProps {
   project: ProjectType;
 }
 
 const ProjectPage: React.FC<ProjectProps> = ({ project }) => (
-  <Project project={project} />
+  <>
+    <Head>
+      <title>
+        Bodging Bear |
+        {' '}
+        {project.name}
+      </title>
+    </Head>
+    <Project project={project} />
+  </>
 );
 
 export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) => {
@@ -22,21 +35,30 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) =
     throw new Error('No id!');
   }
 
-  const project = defaultProjects.find((p) => p.id === id);
+  const project = pagesData.find((p) => p.id === id);
 
   if (!project) {
     throw new Error('Project not found!');
   }
 
+  const repo = await getRepo(project.id);
+
   return {
     props: {
-      project,
+      project: {
+        id: project.id,
+        description: project.description,
+        name: project.name,
+        readme: repo.readme,
+        image: project.image,
+        playNowUrl: null,
+      },
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: defaultProjects.map(({ id }) => ({ params: { id } })),
+  paths: pagesData.map(({ id }) => ({ params: { id } })),
   fallback: false,
 });
 
