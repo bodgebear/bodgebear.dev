@@ -1,8 +1,9 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import url from '../public/favicon.png';
+import Document, {
+  Head, Main, NextScript, DocumentContext,
+} from 'next/document';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -16,7 +17,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <img src={url} alt="" />
         </body>
       </html>
     );

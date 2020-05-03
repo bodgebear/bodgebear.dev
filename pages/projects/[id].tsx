@@ -1,34 +1,42 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Project as ProjectType } from '../../types/Project';
-import { projects } from '../../utils/projects';
-import Project from '../../views/Project/Project';
+import { Project as ProjectType } from 'types/Project';
+import { projects as defaultProjects } from 'constants/projects';
+import Project from 'views/ProjectPage';
 
 interface ProjectProps {
-  project?: ProjectType;
+  project: ProjectType;
 }
 
 const ProjectPage: React.FC<ProjectProps> = ({ project }) => (
   <Project project={project} />
 );
 
-export const getStaticProps: GetStaticProps<ProjectProps> = async ({
-  params: { id: queryId },
-}) => {
-  const id = queryId as string;
+export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) => {
+  if (!params) {
+    throw new Error('No params!');
+  }
+
+  const { id } = params;
+
+  if (!id) {
+    throw new Error('No id!');
+  }
+
+  const project = defaultProjects.find((p) => p.id === id);
+
+  if (!project) {
+    throw new Error('Project not found!');
+  }
 
   return {
     props: {
-      project: {
-        id,
-        name: 'asd',
-        description: 'asd',
-      },
+      project,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: projects.map(({ id }) => ({ params: { id } })),
+  paths: defaultProjects.map(({ id }) => ({ params: { id } })),
   fallback: false,
 });
 
