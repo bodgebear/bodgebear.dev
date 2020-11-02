@@ -8,6 +8,13 @@ interface Page {
 
 export const pages: Page[] = [
   {
+    id: 'airplane',
+    name: "It shouldn't be doing this...",
+    description: 'Calm down the nervous passenger by fixing the plane',
+    image: 'https://raw.githubusercontent.com/bodgingbear/airplane/master/website/screenshot.png',
+    playNowUrl: 'https://airplane.bodgingbear.dev/',
+  },
+  {
     id: 'inside-the-pistol-guild',
     name: 'Inside the pistol guild',
     description: 'Perform a pest control for these wizards\' pistol',
