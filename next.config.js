@@ -11,7 +11,7 @@ const nextAppEnv = Object.entries(process.env)
         };
       }
 
-      return value;
+      return acc;
     },
     {}
   )
