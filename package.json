@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@socialgouv/matomo-next": "^1.1.2",
     "next": "9.3.6",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",

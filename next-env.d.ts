@@ -5,3 +5,7 @@
 
 declare module 'remark-breaks';
 declare module 'remark-emoji';
+
+declare module '@socialgouv/matomo-next' {
+  export function init({ url: string, siteId: string }): void;
+}
