@@ -36,7 +36,7 @@ const team: Team = {
     },
     {
       name: 'Kuba Pietrzak',
-      position: 'Sounds & QA',
+      position: 'Programming & Sounds',
       image: jp,
     },
     {
@@ -51,7 +51,7 @@ const team: Team = {
     },
     {
       name: 'Maciek Wójcik',
-      position: 'Ideation',
+      position: 'Programming',
       image: mw,
     },
     {
