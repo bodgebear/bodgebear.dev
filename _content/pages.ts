@@ -10,7 +10,7 @@ export const pages: Page[] = [
   {
     id: 'sybirfunk',
     name: "Sybirfunk 1943",
-    description: 'Stop funked up gulag prisoners from escaping.',
+    description: 'Stop funked up gulag prisoners from escaping',
     image: 'https://raw.githubusercontent.com/bodgingbear/sybirfunk/master/website/screenshot.png',
     playNowUrl: 'https://sybirfunk.bodgingbear.dev/',
   },
