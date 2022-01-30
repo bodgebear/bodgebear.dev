@@ -7,6 +7,13 @@ interface Page {
 }
 
 export const pages: Page[] = [
+    {
+    id: 'poratuj-dobrodzieju',
+    name: "Poratuj Dobrodzieju!",
+    description: 'Bring back shopping carts and fight the authorities at night.',
+    image: 'https://github.com/bodgingbear/poratuj-dobrodzieju/blob/master/website/screenshot.png',
+    playNowUrl: 'https://poratuj-dobrodzieju.bodgingbear.dev/',
+  },
   {
     id: 'sybirfunk',
     name: "Sybirfunk 1943",
