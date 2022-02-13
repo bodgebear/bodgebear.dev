@@ -43,6 +43,9 @@ jobs:
         NEXT_PUBLIC_MATOMO_SITE_ID: ${{ secrets.MATOMO_SITE_ID }}
         NEXT_PUBLIC_MATOMO_URL: ${{ secrets.MATOMO_URL }}
 
+    - name: Unwrap 404 error file
+      run: mv out/404/index.html out/404.html && rm -rf 404
+
     - name: Deploy to S3
       uses: jakejarvis/s3-sync-action@master
       with:
