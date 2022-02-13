@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 
 import { Project as ProjectType } from 'types/ProjectPageProject';
-import Project from 'views/ProjectPage';
+import { Project } from 'views/ProjectPage/ProjectPage';
 import { getRepo } from 'utils/getRepo';
 
 import { pages as pagesData } from '_content/pages';
@@ -11,20 +11,18 @@ interface ProjectProps {
   project: ProjectType;
 }
 
-const ProjectPage: React.FC<ProjectProps> = ({ project }) => (
+const ProjectPage = ({ project }: ProjectProps) => (
   <>
     <Head>
-      <title>
-        Bodging Bear |
-        {' '}
-        {project.name}
-      </title>
+      <title>Bodging Bear | {project.name}</title>
     </Head>
     <Project project={project} />
   </>
 );
 
-export const getStaticProps: GetStaticProps<ProjectProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ProjectProps> = async ({
+  params,
+}) => {
   if (!params) {
     throw new Error('No params!');
   }

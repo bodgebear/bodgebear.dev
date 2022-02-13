@@ -1,8 +1,9 @@
 import fetch from 'node-fetch';
+import { GH_TOKEN } from './env';
 
 import { getRepoQuery } from './getRepoQuery';
 
-type ReturnValue = { readme: string|null };
+type ReturnValue = { readme: string | null };
 
 const defaultReturnValue: ReturnValue = {
   readme: null,
@@ -14,20 +15,18 @@ export const getRepo = async (repository?: string): Promise<ReturnValue> => {
   }
 
   try {
-    const response = await fetch(
-      'https://api.github.com/graphql',
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `bearer ${process.env.NEXT_APP_GH_TOKEN}`,
-        },
-        body: JSON.stringify({
-          query: getRepoQuery('bodgingbear', repository),
-        }),
+    const response = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: {
+        Authorization: `bearer ${GH_TOKEN}`,
       },
-    );
+      body: JSON.stringify({
+        query: getRepoQuery('bodgingbear', repository),
+      }),
+    });
 
-    const data = await response.json();
+    // TODO:
+    const data = (await response.json()) as any;
 
     return {
       readme: data?.data?.organization?.repository?.readme?.text || null,

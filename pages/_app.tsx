@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import React, { useEffect } from 'react';
-import GlobalStyles from 'components/GlobalStyles';
+import { GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import { init } from '@socialgouv/matomo-next';
+import { MATOMO_URL, MATOMO_SITE_ID } from 'utils/env';
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     init({
-      url: process.env.NEXT_APP_MATOMO_URL,
-      siteId: process.env.NEXT_APP_MATOMO_SITE_ID,
+      url: MATOMO_URL,
+      siteId: MATOMO_SITE_ID,
     });
   }, []);
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Text, TextProps } from 'components/Typography';
+import { Text, TextProps } from 'components/Typography/Typography';
 
 export const List = styled.ul`
   position: relative;
@@ -17,7 +17,8 @@ const ListItemStyledText = styled(Text)<ListItemStyledProps>`
   counter-increment: item;
 
   &::before {
-    ${(props) => (!props.ordered ? 'content: \'*\'' : 'content: counter(item) \'.\'')};
+    ${(props) =>
+      !props.ordered ? "content: '*'" : "content: counter(item) '.'"};
     position: absolute;
     left: 0;
   }

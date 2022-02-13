@@ -6,9 +6,8 @@ interface GridProps {
   gap?: string;
 }
 
-const Grid = styled.section<GridProps>`
+export const Grid = styled.section<GridProps>`
   display: grid;
-  /* stylelint-disable-next-line declaration-colon-newline-after */
   grid-template-columns: ${(props) => {
     if (props.colsTemplate) {
       return `${props.colsTemplate}`;
@@ -22,5 +21,3 @@ const Grid = styled.section<GridProps>`
   }};
   grid-gap: ${(props) => props.gap || '1rem'};
 `;
-
-export default Grid;

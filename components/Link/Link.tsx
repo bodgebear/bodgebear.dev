@@ -1,6 +1,7 @@
+import React from 'react';
 import { LinkStyled } from './Link.styled';
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Link: React.FC = (props) => <LinkStyled muted {...props} />;
-
-export default Link;
+export const Link = (props: React.ComponentProps<typeof LinkStyled>) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <LinkStyled muted {...props} />
+);

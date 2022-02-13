@@ -1,15 +1,13 @@
 import { GetStaticProps } from 'next';
 import { HomePageProject } from 'types/HomePageProject';
 import { pages as pagesData } from '_content/pages';
-import Home from 'views/HomePage';
+import { Home } from 'views/HomePage/HomePage';
 
 interface HomeProps {
   projects: HomePageProject[];
 }
 
-const HomePage: React.FC<HomeProps> = ({ projects }) => (
-  <Home projects={projects} />
-);
+const HomePage = ({ projects }: HomeProps) => <Home projects={projects} />;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => ({
   props: {

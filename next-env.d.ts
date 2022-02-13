@@ -1,11 +1,5 @@
-/* eslint-disable spaced-comment */
 /// <reference types="next" />
-/// <reference types="next/types/global" />
-/// <reference types="next-images" />
+/// <reference types="next/image-types/global" />
 
-declare module 'remark-breaks';
-declare module 'remark-emoji';
-
-declare module '@socialgouv/matomo-next' {
-  export function init({ url: string, siteId: string }): void;
-}
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.

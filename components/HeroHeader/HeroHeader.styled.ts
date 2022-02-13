@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { breakpoints } from '../../constants/variables';
+import { breakpoints } from 'constants/variables';
 
 interface ShowBearProps {
   showBear: boolean;

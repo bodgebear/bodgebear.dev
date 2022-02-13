@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Paragraph } from 'components/Typography';
+import { Paragraph } from 'components/Typography/Typography';
 import { Container, Image } from './ContactMeans.styled';
 
 interface ContactMeansProps {
@@ -9,11 +9,9 @@ interface ContactMeansProps {
   link: string;
 }
 
-const ContactMeans: React.FC<ContactMeansProps> = ({ image, text, link }) => (
+export const ContactMeans = ({ image, text, link }: ContactMeansProps) => (
   <Container href={link}>
     <Image src={image} />
     <Paragraph>{text}</Paragraph>
   </Container>
 );
-
-export default ContactMeans;

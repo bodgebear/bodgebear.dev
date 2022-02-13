@@ -3,5 +3,5 @@ export interface HomePageProject {
   name: string;
   description: string;
   image: string;
-  playNowUrl: string|null;
+  playNowUrl: string | null;
 }

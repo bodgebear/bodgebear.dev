@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import bannerBearNoLogoUrl from 'assets/banner_bear_no_logo.png';
-import bannerLogoUrl from 'assets/bb_name.png';
-import bannerNoBearNoLogoUrl from 'assets/banner_no_bear_no_logo.png';
+import bannerBearNoLogo from 'assets/banner_bear_no_logo.png';
+import bannerLogo from 'assets/bb_name.png';
+import bannerNoBearNoLogo from 'assets/banner_no_bear_no_logo.png';
 
 import {
   Container,
@@ -17,13 +17,9 @@ interface HeroHeaderProps {
   showBear?: boolean;
 }
 
-const HeroHeader: React.FC<HeroHeaderProps> = ({
-  showBear = false,
-}) => {
-  const urlNoLogo = showBear
-    ? bannerBearNoLogoUrl
-    : bannerNoBearNoLogoUrl;
-  const urlLogo = bannerLogoUrl;
+export const HeroHeader = ({ showBear = false }: HeroHeaderProps) => {
+  const urlNoLogo = showBear ? bannerBearNoLogo.src : bannerNoBearNoLogo.src;
+  const urlLogo = bannerLogo.src;
 
   return (
     <Container showBear={showBear}>
@@ -40,5 +36,3 @@ const HeroHeader: React.FC<HeroHeaderProps> = ({
     </Container>
   );
 };
-
-export default HeroHeader;

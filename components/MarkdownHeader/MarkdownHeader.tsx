@@ -1,6 +1,4 @@
-import {
-  Text, H2, H3, H4,
-} from 'components/Typography';
+import { Text, H2, H3, H4 } from 'components/Typography/Typography';
 
 interface MarkdownHeaderProps {
   level: number;
@@ -11,7 +9,7 @@ const StyledH2 = H3.withComponent('h2');
 const StyledH3 = H4.withComponent('h3');
 
 /* eslint-disable react/jsx-props-no-spreading */
-const MarkdownHeader: React.FC<MarkdownHeaderProps> = ({ level, ...props }) => {
+export const MarkdownHeader = ({ level, ...props }: MarkdownHeaderProps) => {
   switch (level) {
     case 1: {
       return <StyledH1 {...props} />;
@@ -28,6 +26,3 @@ const MarkdownHeader: React.FC<MarkdownHeaderProps> = ({ level, ...props }) => {
   }
 };
 /* eslint-enable react/jsx-props-no-spreading */
-
-
-export default MarkdownHeader;

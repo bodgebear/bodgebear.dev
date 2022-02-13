@@ -1,7 +1,7 @@
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import { fontFamily, bodyBackground } from 'constants/variables';
 
-const GlobalStyles = () => (
+export const GlobalStyles = () => (
   <Global
     styles={css`
       body {
@@ -12,5 +12,3 @@ const GlobalStyles = () => (
     `}
   />
 );
-
-export default GlobalStyles;

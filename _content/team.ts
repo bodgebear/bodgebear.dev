@@ -15,51 +15,49 @@ interface Team {
   friends: Person[];
 }
 
-const team: Team = {
+export const team: Team = {
   core: [
     {
       name: 'Bartek Legięć',
       position: 'Programming & Art',
-      image: bl,
+      image: bl.src,
     },
     {
       name: 'Kacper Pietrzak',
       position: 'Programming & Sounds',
-      image: kp,
+      image: kp.src,
     },
   ],
   friends: [
     {
       name: 'Bogdan Bańkowski',
       position: 'Programming',
-      image: bb,
+      image: bb.src,
     },
     {
       name: 'Kuba Pietrzak',
       position: 'Programming & Sounds',
-      image: jp,
+      image: jp.src,
     },
     {
       name: 'Rafał Piórek',
       position: 'Programming',
-      image: rp,
+      image: rp.src,
     },
     {
       name: 'Piotrek Szadkowski',
       position: 'Programming',
-      image: ps,
+      image: ps.src,
     },
     {
       name: 'Maciek Wójcik',
       position: 'Programming',
-      image: mw,
+      image: mw.src,
     },
     {
       name: 'Arek Borysiuk',
       position: 'Art & Music',
-      image: ab,
+      image: ab.src,
     },
   ],
 };
-
-export default team;

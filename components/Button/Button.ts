@@ -10,13 +10,10 @@ import {
 } from 'constants/variables';
 import styled from '@emotion/styled';
 
-const Button = styled.button`
+export const Button = styled.button`
   background: ${buttonBackground};
-  box-shadow:
-    0 0.25em 0 ${buttonBorder},
-    0 -0.25em 0 ${buttonBorder},
-    0.25em 0 0 ${buttonBorder},
-    -0.25em 0 0 ${buttonBorder};
+  box-shadow: 0 0.25em 0 ${buttonBorder}, 0 -0.25em 0 ${buttonBorder},
+    0.25em 0 0 ${buttonBorder}, -0.25em 0 0 ${buttonBorder};
   border: 0;
   font-size: 1em;
   padding: 0.5em 1em;
@@ -41,5 +38,3 @@ const Button = styled.button`
     cursor: default;
   }
 `;
-
-export default Button;

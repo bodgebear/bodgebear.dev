@@ -5,17 +5,20 @@ export interface TextProps {
   muted?: boolean;
   uppercase?: boolean;
   center?: boolean;
-  noMargin?: boolean|'top'|'bottom';
+  noMargin?: boolean | 'top' | 'bottom';
 }
 
 export const Text = styled.span<TextProps>`
   color: ${(props) => (props.muted ? mutedGrey : textColor)};
   ${(props) => (props.uppercase ? 'text-transform: uppercase;' : '')}
   ${(props) => (props.center ? 'text-align: center;' : 'text-align: left;')}
-  ${(props) => (props.noMargin === true ? `
+  ${(props) =>
+    props.noMargin === true
+      ? `
     margin-top: 0;
     margin-bottom: 0;
-  ` : '')}
+  `
+      : ''}
   ${(props) => (props.noMargin === 'top' ? 'margin-top: 0;' : '')}
   ${(props) => (props.noMargin === 'bottom' ? 'margin-bottom: 0;' : '')}
   line-height: 1.5;
