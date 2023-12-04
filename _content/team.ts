@@ -27,6 +27,11 @@ export const team: Team = {
       position: 'Programming & Sounds',
       image: kp.src,
     },
+    {
+      name: 'Piotr Szadkowski',
+      position: 'Programming',
+      image: ps.src,
+    },
   ],
   friends: [
     {
@@ -43,11 +48,6 @@ export const team: Team = {
       name: 'Rafał Piórek',
       position: 'Programming',
       image: rp.src,
-    },
-    {
-      name: 'Piotrek Szadkowski',
-      position: 'Programming',
-      image: ps.src,
     },
     {
       name: 'Maciek Wójcik',
