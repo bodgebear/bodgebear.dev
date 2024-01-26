@@ -4,4 +4,5 @@ export interface Project {
   description: string;
   readme: string | null;
   image: string | null;
+  playNowUrl: string | null;
 }

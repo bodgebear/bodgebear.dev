@@ -1,6 +1,12 @@
-import { ListItemStyled, ListItemStyledProps } from './List.styled';
+import { ComponentProps } from "react";
+import { ListItemStyled } from "./List.styled";
+import { Paragraph } from "components/Typography/Typography";
 
-export const ListItem = (props: ListItemStyledProps) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <ListItemStyled muted {...props} />
+export const ListItem = ({
+  children,
+  ...props
+}: ComponentProps<typeof ListItemStyled>) => (
+  <Paragraph {...props} $muted asChild $userSelect="auto">
+    <ListItemStyled>{children}</ListItemStyled>
+  </Paragraph>
 );

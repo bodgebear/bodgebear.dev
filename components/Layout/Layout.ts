@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
+"use client";
+import styled from "styled-components";
 
-import { breakpoints } from 'constants/variables';
+import { breakpoints } from "constants/variables";
 
 export const Layout = styled.main`
   width: 100%;

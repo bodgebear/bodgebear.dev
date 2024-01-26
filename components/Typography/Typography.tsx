@@ -1,16 +1,33 @@
+"use client";
+import { Slot } from "@radix-ui/react-slot";
 import {
-  ParagraphStyles,
+  Text,
+  TextProps,
   H1Styles,
   H2Styles,
   H3Styles,
   H4Styles,
-} from './Typography.styled';
+} from "./Typography.styled";
+import React, { ReactNode } from "react";
 
-export { Text } from './Typography.styled';
-export type { TextProps } from './Typography.styled';
+type ParagraphProps = TextProps & { asChild?: boolean; children?: ReactNode };
+export const Paragraph = ({ asChild, ...props }: ParagraphProps) => (
+  <Text {...props} as={asChild ? Slot : "p"} />
+);
 
-export const Paragraph = ParagraphStyles.withComponent('p');
-export const H1 = H1Styles.withComponent('h1');
-export const H2 = H2Styles.withComponent('h2');
-export const H3 = H3Styles.withComponent('h3');
-export const H4 = H4Styles.withComponent('h4');
+type H1Props = React.ComponentProps<typeof H1Styles> & { asChild?: boolean };
+export const H1 = ({ asChild, ...props }: H1Props) => (
+  <H1Styles {...props} as={asChild ? Slot : "h1"} />
+);
+type H2Props = React.ComponentProps<typeof H1Styles> & { asChild?: boolean };
+export const H2 = ({ asChild, ...props }: H2Props) => (
+  <H2Styles {...props} as={asChild ? Slot : "h2"} />
+);
+type H3Props = React.ComponentProps<typeof H1Styles> & { asChild?: boolean };
+export const H3 = ({ asChild, ...props }: H3Props) => (
+  <H3Styles {...props} as={asChild ? Slot : "h3"} />
+);
+type H4Props = React.ComponentProps<typeof H1Styles> & { asChild?: boolean };
+export const H4 = ({ asChild, ...props }: H4Props) => (
+  <H4Styles {...props} as={asChild ? Slot : "h4"} />
+);

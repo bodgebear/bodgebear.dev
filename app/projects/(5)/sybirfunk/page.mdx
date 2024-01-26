@@ -1,0 +1,59 @@
+import { BigPlayButton } from "components/BigPlayButton/BigPlayButton";
+import { Center } from "components/Center/Center";
+import { generateGameMetadata } from "utils/generateGameMetadata";
+import { MarkdownImage } from "components/Markdown/Image";
+
+import image from "assets/projects/sybirfunk.png";
+
+export const pageMetadata = {
+  id: "sybirfunk",
+  name: "Sybirfunk 1943",
+  description: "Stop funked up gulag prisoners from escaping",
+  image: image.src,
+  playNowUrl: "https://sybirfunk.bodgingbear.dev/",
+};
+
+export async function generateMetadata(_params, parent) {
+  return generateGameMetadata(pageMetadata, parent);
+}
+
+# Sybirfunk 1943
+
+Stop funked up gulag prisoners from escaping
+
+<MarkdownImage src={image.src} alt="" />
+
+<Center>
+  <BigPlayButton playNowUrl={pageMetadata.playNowUrl} />
+</Center>
+
+This game was created during **Warsaw Film School Game Jam (2020)**
+
+## Technologies used
+
+- TypeScript
+- Phaser
+
+## Play online
+
+[https://sybirfunk.bodgingbear.dev](https://sybirfunk.bodgingbear.dev/)
+
+## Controls
+
+- Move using **_arrow keys_**
+- Shoot with **_space bar_**
+- Shop with **_numerics_**:
+  1. ammo
+  2. sasha
+  3. boris
+  4. vodka
+- Activate Boris (fat soviet soldier) with **Q**
+- Drink vodka with **D**
+
+## Links
+
+- GitHub: [https://github.com/bodgingbear/sybirfunk](https://github.com/bodgingbear/sybirfunk/)
+
+## License
+
+This game is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International](https://github.com/bodgingbear/sybirfunk/blob/master/LICENSE.md)

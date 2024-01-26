@@ -1,27 +1,31 @@
-import styled from '@emotion/styled';
+"use client";
+import styled from "styled-components";
 
-import { Text, TextProps } from 'components/Typography/Typography';
-
-export const List = styled.ul`
+export const UlList = styled.ul`
+  position: relative;
+  padding-left: 2em;
+  counter-reset: item;
+`;
+export const OlList = styled.ol`
   position: relative;
   padding-left: 2em;
   counter-reset: item;
 `;
 
-export interface ListItemStyledProps extends TextProps {
-  ordered?: boolean;
-}
-
-const ListItemStyledText = styled(Text)<ListItemStyledProps>`
+export const ListItemStyled = styled.li`
   list-style: none;
   counter-increment: item;
 
   &::before {
-    ${(props) =>
-      !props.ordered ? "content: '*'" : "content: counter(item) '.'"};
     position: absolute;
     left: 0;
   }
-`;
 
-export const ListItemStyled = ListItemStyledText.withComponent('li');
+  ol > &::before {
+    content: counter(item) ".";
+  }
+
+  ul > &::before {
+    content: "*";
+  }
+`;

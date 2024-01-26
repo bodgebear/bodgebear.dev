@@ -1,2 +1,2 @@
-export { List } from './List.styled';
-export { ListItem } from './ListItem';
+export { UlList, OlList } from "./List.styled";
+export { ListItem } from "./ListItem";

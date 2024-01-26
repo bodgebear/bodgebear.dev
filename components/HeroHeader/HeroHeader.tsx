@@ -1,8 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import bannerBearNoLogo from 'assets/banner_bear_no_logo.png';
-import bannerLogo from 'assets/bb_name.png';
-import bannerNoBearNoLogo from 'assets/banner_no_bear_no_logo.png';
+import React from "react";
+import Link from "next/link";
+import bannerBearNoLogo from "assets/banner_bear_no_logo.png";
+import bannerLogo from "assets/bb_name.png";
+import bannerNoBearNoLogo from "assets/banner_no_bear_no_logo.png";
 
 import {
   Container,
@@ -11,7 +11,7 @@ import {
   ImgLogoContainer,
   ImgLinkLogo,
   ImgLogo,
-} from './HeroHeader.styled';
+} from "./HeroHeader.styled";
 
 interface HeroHeaderProps {
   showBear?: boolean;
@@ -22,7 +22,7 @@ export const HeroHeader = ({ showBear = false }: HeroHeaderProps) => {
   const urlLogo = bannerLogo.src;
 
   return (
-    <Container showBear={showBear}>
+    <Container $showBear={showBear}>
       <ImgLogoContainer>
         <Link href="/" passHref legacyBehavior>
           <ImgLinkLogo>
@@ -30,8 +30,8 @@ export const HeroHeader = ({ showBear = false }: HeroHeaderProps) => {
           </ImgLinkLogo>
         </Link>
       </ImgLogoContainer>
-      <ImageOverflowContainer showBear={showBear}>
-        <ImgNoLogo src={urlNoLogo} showBear={showBear} />
+      <ImageOverflowContainer $showBear={showBear}>
+        <ImgNoLogo src={urlNoLogo} $showBear={showBear} />
       </ImageOverflowContainer>
     </Container>
   );

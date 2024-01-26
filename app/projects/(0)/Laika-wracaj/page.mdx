@@ -1,0 +1,40 @@
+import { BigPlayButton } from "components/BigPlayButton/BigPlayButton";
+import { Center } from "components/Center/Center";
+import { generateGameMetadata } from "utils/generateGameMetadata";
+import { MarkdownImage } from "components/Markdown/Image";
+
+import image from "assets/projects/Laika-wracaj.png";
+
+export const pageMetadata = {
+  id: "Laika-wracaj",
+  name: "Laika wracaj!",
+  description: "Help Laika find her way back home",
+  image: image.src,
+  playNowUrl:
+    "https://github.com/bodgingbear/Laika-wracaj/releases/download/0.0.2/desktop-1.1.jar",
+};
+
+export async function generateMetadata(_params, parent) {
+  return generateGameMetadata(pageMetadata, parent);
+}
+
+# Laika wracaj!
+
+Help Laika find her way back home
+
+<MarkdownImage src={image.src} alt="" />
+
+<Center>
+  <BigPlayButton playNowUrl={pageMetadata.playNowUrl} />
+</Center>
+
+This game was created during [**Warsaw Film School Game Jam 4 (2018)**](https://www.facebook.com/events/warszawska-szko%C5%82a-filmowa/warsaw-film-school-game-jam-4/2016687221706498/)
+
+## Technologies used
+
+- Java
+- libGDX
+
+## Links
+
+- GitHub: [https://github.com/bodgingbear/Laika-wracaj](https://github.com/bodgingbear/Laika-wracaj/)

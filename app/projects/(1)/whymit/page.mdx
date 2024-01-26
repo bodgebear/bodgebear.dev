@@ -1,0 +1,43 @@
+import { BigPlayButton } from "components/BigPlayButton/BigPlayButton";
+import { Center } from "components/Center/Center";
+import { generateGameMetadata } from "utils/generateGameMetadata";
+import { MarkdownImage } from "components/Markdown/Image";
+
+import image from "assets/projects/whymit.png";
+
+export const pageMetadata = {
+  id: "whymit",
+  name: "WHYMIT",
+  description: "Two students measure bridge using a friend",
+  image: image.src,
+  playNowUrl: "https://whymit.bodgingbear.dev",
+};
+
+export async function generateMetadata(_params, parent) {
+  return generateGameMetadata(pageMetadata, parent);
+}
+
+# WHYMIT
+
+Two drunk students measure bridge with a friend\
+Original polish title: _Dwóch pijanych studentów mierzy kumplem most_
+
+<MarkdownImage src={image.src} alt="" />
+
+<Center>
+  <BigPlayButton playNowUrl={pageMetadata.playNowUrl} />
+</Center>
+
+This game was created during [**Global Game Jam (Polyjam – GameJam&#8288;.&#8288;js)**](https://globalgamejam.org/2019/jam-sites/polyjam-2019)
+
+## Technologies used
+
+- Construct 3
+
+## Play online
+
+[https://whymit.bodgingbear.dev](https://whymit.bodgingbear.dev)
+
+## Links
+
+- GitHub: [https://github.com/bodgingbear/whymit](https://github.com/bodgingbear/whymit)

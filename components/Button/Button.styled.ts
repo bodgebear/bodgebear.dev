@@ -1,3 +1,4 @@
+"use client";
 import {
   buttonBorder,
   buttonBackground,
@@ -7,10 +8,10 @@ import {
   buttonColorHovered,
   buttonBackgroundDisabled,
   buttonColorDisabled,
-} from 'constants/variables';
-import styled from '@emotion/styled';
+} from "constants/variables";
+import styled from "styled-components";
 
-export const Button = styled.button`
+export const StyledButton = styled.button`
   background: ${buttonBackground};
   box-shadow: 0 0.25em 0 ${buttonBorder}, 0 -0.25em 0 ${buttonBorder},
     0.25em 0 0 ${buttonBorder}, -0.25em 0 0 ${buttonBorder};
@@ -18,23 +19,26 @@ export const Button = styled.button`
   font-size: 1em;
   padding: 0.5em 1em;
   margin: 0.25em;
-  color: ${buttonColor};
   font-family: ${fontFamily};
-  transition: 0.1s ease-in-out;
-  transition-property: color, background;
   outline: 0;
   cursor: pointer;
   text-decoration: none;
+  user-select: none;
 
-  &:hover,
-  &:focus {
-    background: ${buttonBackgroundHovered};
-    color: ${buttonColorHovered};
-  }
+  && {
+    color: ${buttonColor};
+    text-decoration: none;
 
-  &:disabled {
-    background: ${buttonBackgroundDisabled};
-    color: ${buttonColorDisabled};
-    cursor: default;
+    &:hover,
+    &:focus-visible {
+      background: ${buttonBackgroundHovered};
+      color: ${buttonColorHovered};
+    }
+
+    &:disabled {
+      background: ${buttonBackgroundDisabled};
+      color: ${buttonColorDisabled};
+      cursor: default;
+    }
   }
 `;

@@ -1,16 +1,22 @@
-import React from 'react';
-import { Person as PersonType } from 'types/Person';
-import { Paragraph } from 'components/Typography/Typography';
+import React from "react";
+import { Person as PersonType } from "types/Person";
+import { Paragraph } from "components/Typography/Typography";
 
-import { Image, Container } from './Person.styled';
+import { Image, Container, ImageWrapper } from "./Person.styled";
 
 interface PersonProps extends PersonType {}
 
-export const Person = ({ image, name, position }: PersonProps) => (
-  <Container>
-    <Image src={image} alt="" />
-    <Paragraph center>{name}</Paragraph>
-    <Paragraph muted center noMargin="top">
+export const Person = ({ image, name, position, url }: PersonProps) => (
+  <Container
+    as={url ? "a" : undefined}
+    href={url}
+    target={url != null ? "_blank" : undefined}
+  >
+    <ImageWrapper>
+      <Image src={image} alt="" />
+    </ImageWrapper>
+    <Paragraph $center>{name}</Paragraph>
+    <Paragraph $muted $center $noMargin="top">
       {position}
     </Paragraph>
   </Container>

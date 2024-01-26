@@ -1,11 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
 
-import { Paragraph } from 'components/Typography/Typography';
-import { Center } from 'components/Center/Center';
-import { HomePageProject } from 'types/HomePageProject';
+import { Paragraph } from "components/Typography/Typography";
+import { Center } from "components/Center/Center";
+import { HomePageProject } from "types/HomePageProject";
 
-import { A, Image, ButtonLink } from './Game.styled';
+import { A, Description, Image, ImageWrapper, Wrapper } from "./Game.styled";
+import { Button } from "../Button/Button";
 
 interface GameProps extends HomePageProject {}
 
@@ -16,22 +16,26 @@ export const Game = ({
   image,
   playNowUrl,
 }: GameProps) => (
-  <div>
-    <Link href="/projects/[id]" as={`/projects/${id}`} passHref legacyBehavior>
-      <A>
-        {image && <Image src={image} />}
-        <Paragraph center>{name}</Paragraph>
-        <Paragraph muted center noMargin="top">
-          {description}
-        </Paragraph>
-      </A>
-    </Link>
+  <Wrapper>
+    <A href={`/projects/${id}`}>
+      {image && (
+        <ImageWrapper>
+          <Image src={image} alt="" />
+        </ImageWrapper>
+      )}
+      <Paragraph $center>{name}</Paragraph>
+      <Description $muted $center $noMargin="top" as="p">
+        {description}
+      </Description>
+    </A>
     {playNowUrl && (
       <Center>
-        <ButtonLink href={playNowUrl} target="_blank">
-          Play now!
-        </ButtonLink>
+        <Button asChild>
+          <a href={playNowUrl} target="_blank">
+            Play now!
+          </a>
+        </Button>
       </Center>
     )}
-  </div>
+  </Wrapper>
 );

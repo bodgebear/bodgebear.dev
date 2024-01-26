@@ -1,17 +1,16 @@
-import { textColor, mutedGrey } from 'constants/variables';
+"use client";
+import { textColor, mutedGrey } from "constants/variables";
 
-import { Text } from 'components/Typography/Typography';
-import styled from '@emotion/styled';
+import { Paragraph } from "components/Typography/Typography";
+import styled from "styled-components";
 
-const LinkStyledText = styled(Text)`
+export const LinkStyled = styled(Paragraph)`
   text-decoration: underline;
   color: ${mutedGrey};
-  word-break: break-all;
+  overflow-wrap: break-word;
 
   &:hover,
   &:focus {
     color: ${textColor};
   }
 `;
-
-export const LinkStyled = LinkStyledText.withComponent('a');
