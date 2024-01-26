@@ -86,7 +86,7 @@ export default async function HomePage() {
   );
 }
 
-export const getItems = cache(async () => {
+const getItems = cache(async () => {
   const pagePaths = await glob(["app/projects/*/*/page.mdx"]);
 
   const pageMetadatas = pagePaths
@@ -100,8 +100,6 @@ export const getItems = cache(async () => {
         (x) => x.pageMetadata,
       );
     });
-
-  console.log(pagePaths);
 
   return Promise.all(pageMetadatas);
 });
