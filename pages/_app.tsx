@@ -4,6 +4,13 @@ import React, { useEffect } from 'react';
 import { GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import { init } from '@socialgouv/matomo-next';
 import { MATOMO_URL, MATOMO_SITE_ID } from 'utils/env';
+import { Press_Start_2P } from 'next/font/google';
+
+const pressStart2P = Press_Start_2P({
+  weight: '400',
+  display: 'swap',
+  subsets: ['latin-ext'],
+});
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -20,7 +27,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <GlobalStyles />
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Component {...pageProps} />
+      <Component {...pageProps} className={pressStart2P.className} />
     </>
   );
 };

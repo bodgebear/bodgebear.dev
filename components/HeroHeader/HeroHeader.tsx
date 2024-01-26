@@ -24,7 +24,7 @@ export const HeroHeader = ({ showBear = false }: HeroHeaderProps) => {
   return (
     <Container showBear={showBear}>
       <ImgLogoContainer>
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <ImgLinkLogo>
             <ImgLogo src={urlLogo} />
           </ImgLinkLogo>

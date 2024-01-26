@@ -17,7 +17,7 @@ export const Game = ({
   playNowUrl,
 }: GameProps) => (
   <div>
-    <Link href="/projects/[id]" as={`/projects/${id}`} passHref>
+    <Link href="/projects/[id]" as={`/projects/${id}`} passHref legacyBehavior>
       <A>
         {image && <Image src={image} />}
         <Paragraph center>{name}</Paragraph>
