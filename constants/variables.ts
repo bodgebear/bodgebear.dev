@@ -1,7 +1,7 @@
 export const black = "#0B0A0A";
 export const white = "#fff";
 
-export const fontFamily = "'Press Start 2P', sans-serif";
+export const fontFamily = "var(--press-start-2p-font-family), sans-serif";
 export const bodyBackground = black;
 export const textColor = white;
 

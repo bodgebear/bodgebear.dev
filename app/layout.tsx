@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 const pressStart2P = Press_Start_2P({
   weight: "400",
   display: "swap",
-  subsets: ["latin-ext"],
+  subsets: ["latin", "latin-ext"],
+  variable: "--press-start-2p-font-family",
 });
 
 export default function RootLayout({
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={pressStart2P.className}>
+      <body className={pressStart2P.variable}>
         <StyledComponentsRegistry>
           {children}
           <GlobalStyles />
