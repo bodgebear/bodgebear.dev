@@ -29,13 +29,13 @@ export const team: Team = {
       image: kp.src,
       url: "https://www.linkedin.com/in/kacper-pietrzak/",
     },
+  ],
+  friends: [
     {
       name: "Piotr Szadkowski",
       position: "Programming",
       image: ps.src,
     },
-  ],
-  friends: [
     {
       name: "Bogdan Bańkowski",
       position: "Programming",
